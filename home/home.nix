@@ -22,6 +22,7 @@
       pkgs.jq
       pkgs.pulsemixer
       pkgs.bluetuith
+      pkgs.lm_sensors
       inputs.srn-coreutils.packages.${pkgs.stdenv.hostPlatform.system}.default
     ];
   };
