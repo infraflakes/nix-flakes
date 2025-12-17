@@ -34,10 +34,13 @@ return {
   },
 
   { -- Highlight, edit, and navigate code
-    "nvim-treesitter/nvim-treesitter",
-    build = ":TSUpdate",
-    main = "nvim-treesitter.configs", -- Sets main module to use for opts
-    opts = {
+  "nvim-treesitter/nvim-treesitter",
+  build = ":TSUpdate",
+  branch = "master",  -- Explicitly specify master branch
+  lazy = false,       -- Important: treesitter doesn't support lazy loading
+  config = function()
+    local configs = require("nvim-treesitter.configs")
+    configs.setup({
       ensure_installed = {
         "bash",
         "c",
@@ -58,8 +61,9 @@ return {
       indent = {
         enable = true,
       },
-    },
-  },
+    })
+  end,
+},
 
   {
     "hrsh7th/nvim-cmp",
