@@ -37,11 +37,11 @@
       archive = "srn archive";
       music = "srn music";
       tm = "tmux new-session -A";
-      cd = "z";
       cat = "bat";
       rg = "grep";
       se = "sudo -E -s nvim";
       ls = "lsd -l";
+      xr = "doas xbps-remove -R";
     };
     interactiveShellInit = ''
       fastfetch

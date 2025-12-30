@@ -15,5 +15,7 @@
     keybind=clear
     keybind = performable:ctrl+c=copy_to_clipboard
     keybind = ctrl+v=paste_from_clipboard
+    confirm-close-surface = false
+    window-decoration = false
   '';
 }
