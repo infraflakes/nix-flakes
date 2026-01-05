@@ -8,6 +8,9 @@
     settings = {
       logo = {
         source = builtins.toString ./config/fastfetch/2b.txt;
+        color = {
+          "1" = "blue";
+        };
         padding = {
           top = 2;
           right = 6;
@@ -19,6 +22,11 @@
         "break"
         {
           type = "title";
+          color = {
+            user = "blue";
+            at = "white";
+            host = "blue";
+          };
           keyWidth = 10;
         }
         "break"
