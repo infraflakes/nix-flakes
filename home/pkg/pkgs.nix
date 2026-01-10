@@ -2,26 +2,23 @@
   config,
   pkgs,
   ...
-}: let
-  cli = ./cli;
-  dev = ./cli/dev;
-  media = ./media;
-in {
+}: {
   imports = [
     # CLI
-    (cli + "/file-manager.nix")
-    (cli + "/nvim.nix")
+    ./cli/nvim.nix
+    ./cli/ghostty.nix
+    ./cli/file-manager.nix
 
     # Dev
-    (dev + "/vcs.nix")
-    (dev + "/tmux.nix")
-    (dev + "/podman.nix")
-    #(dev + "/ollama.nix")
+    ./cli/dev/podman.nix
+    ./cli/dev/tmux.nix
+    ./cli/dev/vcs.nix
 
     # Media
-    (media + "/media.nix")
-    (media + "/misc.nix")
-    (media + "/social.nix")
-    (media + "/vpn.nix")
+    ./media/media.nix
+    ./media/mpd.nix
+    ./media/misc.nix
+    ./media/social.nix
+    ./media/vpn.nix
   ];
 }

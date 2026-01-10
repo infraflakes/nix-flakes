@@ -7,7 +7,7 @@
     # CLI
     ./cli/fish.nix
     ./cli/zsh.nix
-    ./cli/kitty.nix
+
     #./cli/starship.nix
     ./cli/fastfetch.nix
 

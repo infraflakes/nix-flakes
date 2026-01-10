@@ -178,7 +178,7 @@ in {
         Mod+Shift+W hotkey-overlay-title="Wallpaper" { spawn "dms" "ipc" "call" "dankdash" "wallpaper"; }
         Mod+M hotkey-overlay-title="Media" { spawn "dms" "ipc" "call" "dash" "open" "media"; }
 
-              Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "uwsm" "app" "--" "kitty"; }
+              Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "uwsm" "app" "--" "ghostty"; }
               Mod+Q { close-window; }
               Mod+A repeat=false { toggle-overview; }
 

@@ -5,19 +5,15 @@
   ...
 }: {
   services.accounts-daemon.enable = true; # Fix profile picture disappear after reboot
-  users = {
-    defaultUserShell = pkgs.fish;
-    users = {
-      ${username} = {
-        isNormalUser = true;
-        extraGroups = [
-          "networkmanager"
-          "wheel"
-        ];
-      };
+  users.users = {
+    ${username} = {
+      isNormalUser = true;
+      extraGroups = [
+        "networkmanager"
+        "wheel"
+      ];
     };
   };
-  programs.fish.enable = true;
   # Locale
   i18n.defaultLocale = "en_US.UTF-8";
   i18n.extraLocaleSettings = {
