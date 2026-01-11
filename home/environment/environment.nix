@@ -7,10 +7,10 @@
     ./wm/hypr.nix
     ./wm/swappy.nix
 
-    ./shell/dms.nix
-    ./shell/fonts.nix
-    ./shell/theme.nix
-    ./shell/wallpapers.nix
+    ./ui/dms.nix
+    ./ui/fonts.nix
+    ./ui/theme.nix
+    ./ui/wallpapers.nix
 
     ./sys/autostart.nix
     ./sys/ime.nix

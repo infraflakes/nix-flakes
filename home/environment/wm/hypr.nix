@@ -187,7 +187,7 @@ in {
       ];
 
       env = [
-        "AQ_DRM_DEVICES,/dev/dri/card2:/dev/dri/card1"
+        #"AQ_DRM_DEVICES,/dev/dri/card2:/dev/dri/card1"
 
         "QT_SCALE_FACTOR,1"
         "QT_AUTO_SCREEN_SCALE_FACTOR,1"
