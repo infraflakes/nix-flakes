@@ -6,7 +6,6 @@
     password: None,
     theme: "default",
     cache_dir: None,
-    on_song_change: ["~/.local/bin/music/notify"],
     volume_step: 5,
     max_fps: 30,
     scrolloff: 0,

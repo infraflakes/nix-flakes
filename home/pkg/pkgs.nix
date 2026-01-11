@@ -8,11 +8,11 @@
     ./cli/nvim.nix
     ./cli/ghostty.nix
     ./cli/file-manager.nix
-
-    # Dev
-    ./cli/dev/podman.nix
-    ./cli/dev/tmux.nix
-    ./cli/dev/vcs.nix
+    ./cli/fastfetch.nix
+    ./cli/fish.nix
+    ./cli/podman.nix
+    ./cli/tmux.nix
+    ./cli/vcs.nix
 
     # Media
     ./media/media.nix

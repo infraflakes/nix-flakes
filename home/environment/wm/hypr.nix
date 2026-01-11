@@ -5,9 +5,7 @@
   inputs,
   ...
 }: let
-  hyprScriptsDir = builtins.toString ../../shared/scripts/hypr;
-  scriptsDir = builtins.toString ../../shared/scripts/sys;
-  rofiScriptsDir = builtins.toString ../../shared/scripts/rofi;
+  scriptsDir = builtins.toString ./scripts;
 in {
   home.packages = with pkgs; [
     libnotify
@@ -16,13 +14,6 @@ in {
     glib
     brightnessctl
   ];
-  # xdg.portal = {
-  #   enable = true;
-  #   extraPortals = with pkgs; [
-  #     xdg-desktop-portal-gtk
-  #     xdg-desktop-portal-hyprland
-  #   ];
-  # };
   services.cliphist.enable = true;
   wayland.windowManager.hyprland = {
     portalPackage = pkgs.xdg-desktop-portal-hyprland;
@@ -153,7 +144,7 @@ in {
         "SUPER, V, exec, dms ipc clipboard toggle"
         "SUPER SHIFT, S, exec, ${scriptsDir}/scrshot --swappy"
         "SUPER ALT, S, exec, ${scriptsDir}/scrshot --now"
-        "SUPER, Period, exec, ${rofiScriptsDir}/emoji"
+        #"SUPER, Period, exec, ${rofiScriptsDir}/emoji"
         #Hidden workspace
         #"SUPER ALT, S, movetoworkspacesilent, special"
         #"SUPER, S, togglespecialworkspace,"
@@ -196,9 +187,20 @@ in {
       ];
 
       env = [
+        "AQ_DRM_DEVICES,/dev/dri/card2:/dev/dri/card1"
+
+        "QT_SCALE_FACTOR,1"
+        "QT_AUTO_SCREEN_SCALE_FACTOR,1"
+        "QT_QPA_PLATFORM,wayland;xcb"
+        "QT_QPA_PLATFORMTHEME,gtk3"
+        "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
+        "MOZ_ENABLE_WAYLAND,1"
+        "EGL_PLATFORM,wayland"
+
         "LIBVA_DRIVER_NAME,nvidia"
         "__GLX_VENDOR_LIBRARY_NAME,nvidia"
         "GBM_BACKEND,nvidia-drm"
+        "NVD_BACKEND,direct"
       ];
 
       windowrulev2 = [
