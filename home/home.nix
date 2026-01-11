@@ -15,14 +15,10 @@
       pkgs.home-manager
       pkgs.ncdu
       pkgs.bottom
-      pkgs.nmap
       pkgs.lsd
       pkgs.ripgrep
       pkgs.bat
       pkgs.jq
-      pkgs.pulsemixer
-      pkgs.bluetuith
-      pkgs.lm_sensors
       inputs.srn-coreutils.packages.${pkgs.stdenv.hostPlatform.system}.default
       inputs.srn-cd.packages.${pkgs.stdenv.hostPlatform.system}.default
     ];

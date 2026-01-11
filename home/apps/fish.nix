@@ -45,7 +45,6 @@
       xr = "doas xbps-remove -R";
     };
     interactiveShellInit = ''
-      fastfetch
       set username (whoami)
       echo "				Welcome back, $username!"
       export EDITOR=nvim
