@@ -19,5 +19,6 @@
     ./runtime/mount.nix
     ./runtime/virt/virt-qemu.nix
     ./runtime/gaming.nix
+    ./runtime/containerization/podman.nix
   ];
 }

@@ -5,7 +5,6 @@
   username,
   ...
 }: {
-  users.users.${username}.extraGroups = ["docker"];
   virtualisation.docker = {
     enable = true;
     rootless = {
@@ -18,9 +17,8 @@
         ];
         registry-mirrors = [
           "https://mirror.gcr.io"
-          "docker.io"
-          "quay.io"
-          "registry.fedoraproject.org"
+          "https://quay.io"
+          "https://registry.fedoraproject.org"
         ];
       };
     };
