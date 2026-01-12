@@ -2,12 +2,12 @@
 
 Build the image:
 ```bash
-podman build -t nixdev .
+curl -sSL https://gitlab.com/infraflakes/nix-flakes/-/raw/container/Dockerfile | podman build -t nixdev -f - .
 ```
 
 Create the container:
 ```bash
-podman run -it --name nixdev nixdev
+podman run -it --network host --name nixdev nixdev
 ```
 
 Reattach to the stopped container:
