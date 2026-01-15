@@ -15,9 +15,7 @@
     ./cli/ide.nix
 
     # Media
-    ./media/media.nix
-    ./media/mpd.nix
-    ./media/misc.nix
+    ./media/multimedia.nix
     ./media/social.nix
     ./media/vpn.nix
   ];

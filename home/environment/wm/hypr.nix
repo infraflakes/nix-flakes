@@ -8,13 +8,9 @@
   scriptsDir = builtins.toString ./scripts;
 in {
   home.packages = with pkgs; [
-    libnotify
-    bc
-    jq
     glib
     brightnessctl
   ];
-  services.cliphist.enable = true;
   wayland.windowManager.hyprland = {
     portalPackage = pkgs.xdg-desktop-portal-hyprland;
     package = pkgs.hyprland;
@@ -36,6 +32,9 @@ in {
         "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
         "hyprctl setcursor Bibata-Modern-Classic 24"
         "dms run"
+        "bash -c 'until ${pkgs.mpc}/bin/mpc > /dev/null 2>&1; do sleep 1; done; exec mpd-mpris'"
+        "mpd ${config.xdg.configHome}/mpd/mpd.conf"
+        "music-discord-rpc"
         # "hyprctl plugin load ${pkgs.hyprlandPlugins.hyprscrolling}/lib/libhyprscrolling.so"
       ];
 

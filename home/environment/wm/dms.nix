@@ -4,6 +4,7 @@
   inputs,
   ...
 }: {
+  services.cliphist.enable = true;
   imports = [
     inputs.dms.homeModules.dankMaterialShell.default
   ];
