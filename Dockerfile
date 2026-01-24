@@ -1,27 +1,34 @@
-
 # --- Global Args ---
 ARG USERNAME=nixdev
 ARG HOSTNAME=container-env
 ARG REPO_URL="https://gitlab.com/infraflakes/nix-flakes"
 ARG REPO_BRANCH="container"
 
-FROM debian:bookworm-slim
+FROM alpine:latest
 
-# Re-declare ARGs to bring them into this build stage's scope
+# Re-declare ARGs
 ARG USERNAME
 ARG HOSTNAME
 ARG REPO_URL
 ARG REPO_BRANCH
 
 # 1. Install prerequisites
-RUN apt-get update && apt-get install -y \
-    curl xz-utils git fish sudo \
-    && rm -rf /var/lib/apt/lists/*
+# Replaced 'sudo' with 'doas'
+RUN apk add --no-cache \
+    curl \
+    xz \
+    git \
+    fish \
+    doas \
+    shadow \
+    bash \
+    ca-certificates
 
 # 2. Setup User & Nix Path
-RUN useradd -m $USERNAME && \
-    echo "$USERNAME ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers && \
-    mkdir -m 0755 /nix && chown $USERNAME /nix
+RUN useradd -m -s /usr/bin/fish $USERNAME && \
+    mkdir -m 0755 /nix && chown $USERNAME /nix && \
+    # Configure doas: permit the user to run commands as root without a password
+    echo "permit nopass $USERNAME as root" > /etc/doas.d/doas.conf
 
 USER $USERNAME
 WORKDIR /home/$USERNAME
@@ -43,5 +50,6 @@ RUN git clone -b $REPO_BRANCH $REPO_URL container
 WORKDIR /home/$USERNAME/container
 RUN nix run nixpkgs#home-manager -- switch --flake .#${USERNAME}@${HOSTNAME}
 
+WORKDIR /home/$USERNAME
 CMD ["/usr/bin/fish"]
 
