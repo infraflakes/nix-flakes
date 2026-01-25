@@ -13,6 +13,9 @@
         email = "infraflakes@proton.me";
         name = "infraflakes";
       };
+      ui = {
+        pager = "cat";
+      };
     };
   };
 }
