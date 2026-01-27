@@ -7,7 +7,7 @@
     "app.zen_browser.zen"
   ];
 in {
-  environment.systemPackages = with pkgs; [appimage-run steam-run];
+  environment.systemPackages = with pkgs; [appimage-run];
   programs.appimage = {
     enable = true;
     binfmt = true;

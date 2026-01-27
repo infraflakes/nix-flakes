@@ -9,6 +9,8 @@
   services.gnome.rygel.enable = false;
 
   environment.gnome.excludePackages = with pkgs; [
+    nautilus
+    papers
     loupe
     file-roller
     gnome-system-monitor
@@ -49,7 +51,7 @@
     mutter
     gnome-tweaks
     gnome-extension-manager
-    dconf-editor
+    # dconf-editor
     gnomeExtensions.blur-my-shell
     gnomeExtensions.user-themes
     gnomeExtensions.vitals
