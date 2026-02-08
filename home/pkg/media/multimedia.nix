@@ -4,7 +4,6 @@
   inputs,
   ...
 }: {
-  imports = [inputs.spicetify-nix.homeManagerModules.default];
   home.packages = with pkgs; [
     # krita
     imv
@@ -36,19 +35,6 @@
     port "6600"
     restore_paused "yes"
   '';
-  programs.spicetify = let
-    spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.hostPlatform.system};
-  in {
-    enable = true;
-    enabledExtensions = with spicePkgs.extensions; [
-      adblock
-      hidePodcasts
-      shuffle # shuffle+ (special characters are sanitized out of extension names)
-      trashbin
-    ];
-    theme = spicePkgs.themes.catppuccin;
-    colorScheme = "mocha";
-  };
   programs.obs-studio = {
     enable = true;
     plugins = with pkgs.obs-studio-plugins; [

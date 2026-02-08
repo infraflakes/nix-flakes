@@ -13,7 +13,7 @@
     # User environment
     ./environment/user.nix
     ./environment/profiles.nix
-    ./environment/gnome.nix
+    #./environment/gnome.nix
     # ./environment/cosmic.nix
 
     # Programs that needs privileges

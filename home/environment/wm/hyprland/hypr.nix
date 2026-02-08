@@ -220,16 +220,16 @@ in {
         # "NVD_BACKEND,direct"
       ];
 
-      windowrulev2 = [
-        "opacity 1 1,floating:1"
-        "float,class:^(Rofi|rofi)$"
-        "float,class:^(imv)$"
-        #"opacity 0.85 0.7, class:^(Alacritty)$ # Alacritty"
-        "opacity 0.0 override, class:^(xwaylandvideobridge)$"
-        "noanim, class:^(xwaylandvideobridge)$"
-        "noinitialfocus, class:^(xwaylandvideobridge)$"
-        "maxsize 1 1, class:^(xwaylandvideobridge)$"
-        "noblur, class:^(xwaylandvideobridge)$"
+      windowrule = [
+        "match:class ^(Rofi|rofi)$, float on"
+        "match:class ^(imv)$, float on"
+        "match:class ^(xwaylandvideobridge)$, opacity 0.0 override"
+        "match:class ^(xwaylandvideobridge)$, no_anim on"
+        "match:class ^(xwaylandvideobridge)$, no_initial_focus on"
+        "match:class ^(xwaylandvideobridge)$, max_size 1 1"
+        "match:class ^(xwaylandvideobridge)$, no_blur on"
+        # "match:is_floating on, opacity 1 1"
+        # "match:class ^(Alacritty)$, opacity 0.85 0.7"
       ];
     };
   };
