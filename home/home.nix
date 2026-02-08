@@ -19,9 +19,6 @@
       pkgs.ripgrep
       pkgs.bat
       pkgs.jq
-      pkgs.wget
-      pkgs.curl
-      pkgs.xz
       inputs.srn-coreutils.packages.${pkgs.stdenv.hostPlatform.system}.default
       inputs.srn-cd.packages.${pkgs.stdenv.hostPlatform.system}.default
     ];

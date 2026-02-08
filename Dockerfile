@@ -12,7 +12,7 @@ ARG REPO_BRANCH
 
 # 1. Install prerequisites
 RUN apt-get update && apt-get install -y \
-    git fish opendoas \
+    xz-utils curl wget git fish opendoas \
     && rm -rf /var/lib/apt/lists/*
 
 # 2. Setup User & Nix Path
