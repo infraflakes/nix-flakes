@@ -11,21 +11,6 @@ in {
     glib
     brightnessctl
   ];
-  xdg.portal = {
-    enable = true;
-    extraPortals = [
-      pkgs.xdg-desktop-portal-hyprland
-      pkgs.xdg-desktop-portal-gtk
-    ];
-    config = {
-      common = {
-        # Use xdg-desktop-portal-gtk for the settings interface
-        "org.freedesktop.portal.Settings" = ["gtk"];
-        # Use hyprland for everything else, or specify others
-        default = ["hyprland"];
-      };
-    };
-  };
   wayland.windowManager.hyprland = {
     portalPackage = pkgs.xdg-desktop-portal-hyprland;
     package = pkgs.hyprland;
@@ -44,6 +29,7 @@ in {
         "HDMI-A, highrr, -1920x0, 1"
       ];
       exec-once = [
+        "ghostty --gtk-single-instance=true --quit-after-last-window-closed=false --initial-window=false"
         "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
         "hyprctl setcursor Bibata-Modern-Classic 24"
         "dms run"
