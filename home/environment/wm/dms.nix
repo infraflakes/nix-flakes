@@ -18,4 +18,12 @@
     enableAudioWavelength = true; # Audio visualizer (cava)
   };
   #services.cliphist.enable = true;
+  #Ikhal
+  xdg.desktopEntries."khal" = {
+    name = "ikhal";
+    exec = "ikhal";
+    terminal = false;
+    type = "Application";
+    noDisplay = true;
+  };
 }

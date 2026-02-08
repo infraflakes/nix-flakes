@@ -19,6 +19,14 @@
     type = "Application";
     noDisplay = true;
   };
+  #RMPC
+  xdg.desktopEntries."rmpc" = {
+    name = "Rusty Music Player Client";
+    exec = "rmpc";
+    terminal = false;
+    type = "Application";
+    noDisplay = true;
+  };
   #UUCTL
   xdg.desktopEntries."uuctl" = {
     name = "User unit manager";
