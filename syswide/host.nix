@@ -4,12 +4,14 @@
   ...
 }: {
   imports = [
+    # System core
     /etc/nixos/hardware-configuration.nix
     ./core/sys.nix
-    ./core/power.nix
+    ./core/graphics.nix
+    ./core/misc.nix
     ./core/user.nix
-    ./core/tools.nix
 
+    # Programs that needs privileges
     ./runtime/podman.nix
   ];
 }

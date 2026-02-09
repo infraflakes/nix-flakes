@@ -1,0 +1,50 @@
+{
+  config,
+  pkgs,
+  ...
+}: {
+  #Sys pkgs
+  environment.systemPackages = with pkgs; [
+    htop
+    home-manager
+    ncdu
+    bottom
+    lm_sensors
+    bluetuith
+    pulsemixer
+    nmap
+    ripgrep
+    bat
+    jq
+  ];
+  # SSH
+  services.openssh = {
+    enable = true;
+    settings = {
+      PermitRootLogin = "prohibit-password";
+      PasswordAuthentication = true;
+    };
+  };
+  networking.firewall.allowedTCPPorts = [22];
+  #Disabled systemd services
+  systemd = {
+    services = {
+      NetworkManager-wait-online.enable = false;
+      NetworkManager-dispatcher.enable = false;
+    };
+  };
+
+  security = {
+    sudo.enable = false;
+    doas = {
+      enable = true;
+      extraRules = [
+        {
+          groups = ["wheel"];
+          keepEnv = true;
+          persist = true;
+        }
+      ];
+    };
+  };
+}

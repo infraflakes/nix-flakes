@@ -1,17 +1,27 @@
 {
   config,
-  pkgs,
   lib,
+  pkgs,
+  username,
   ...
 }: {
-  virtualisation.containers.enable = true;
+  environment.systemPackages = with pkgs; [distrobox];
   virtualisation = {
+    containers.enable = true;
     podman = {
       enable = true;
-      # Create a `docker` alias for podman, to use it as a drop-in replacement
       dockerCompat = true;
-      # Required for containers under podman-compose to be able to talk to each other.
-      defaultNetwork.settings.dns_enabled = true;
+      dockerSocket.enable = true;
+      defaultNetwork.settings.dns_enabled = true; # Required for containers under podman-compose to be able to talk to each other.
     };
   };
+
+  environment.etc."containers/registries.conf".text = lib.mkForce ''
+    unqualified-search-registries = ["docker.io", "quay.io"]
+
+    [[registry]]
+    location = "docker.io"
+  '';
+
+  users.users.${username}.extraGroups = ["podman"];
 }

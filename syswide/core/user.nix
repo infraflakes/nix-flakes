@@ -1,21 +1,20 @@
 {
   config,
   pkgs,
-  libs,
+  username,
   ...
 }: {
-  users = {
-    users = {
-      nixuris = {
-        isNormalUser = true;
-        shell = pkgs.fish;
-        extraGroups = ["networkmanager" "wheel" "libvirtd" "kvm" "adbusers" "podman"];
-      };
+  users.users = {
+    ${username} = {
+      isNormalUser = true;
+      extraGroups = [
+        "networkmanager"
+        "wheel"
+      ];
     };
   };
-  programs.fish.enable = true;
+  # Locale
   i18n.defaultLocale = "en_US.UTF-8";
-
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "vi_VN";
     LC_IDENTIFICATION = "vi_VN";
@@ -30,20 +29,10 @@
   #Time zone
   time.timeZone = "Asia/Ho_Chi_Minh";
   services.timesyncd.enable = true;
-
   #Network
   networking = {
     hostName = "serein";
     networkmanager.enable = true;
-    nameservers = ["1.1.1.1"];
+    nameservers = ["8.8.8.8" "1.1.1.1"];
   };
-  # SSH
-  services.openssh = {
-    enable = true;
-    settings = {
-      PermitRootLogin = "prohibit-password";
-      PasswordAuthentication = true;
-    };
-  };
-  networking.firewall.allowedTCPPorts = [22];
 }
