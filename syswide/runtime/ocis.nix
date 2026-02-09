@@ -29,6 +29,7 @@
       Group = "users";
       WorkingDirectory = "/data/ocis";
       ExecStart = "${pkgs.ocis}/bin/ocis server";
+      EnvironmentFile = "/data/ocis/runtime.env";
       Restart = "always";
     };
   };
