@@ -14,6 +14,7 @@
     environment = {
       OCIS_CONFIG_DIR = "/data/ocis/config";
       OCIS_BASE_DATA_PATH = "/data/ocis/data";
+      STORAGE_USERS_DRIVER = "posix";
       PROXY_HTTP_ADDR = "192.168.1.20:9200";
       PROXY_TLS = "false"; # Disable the internal proxy if use Cloudflare Tunnel or Nginx
       OCIS_INSECURE = "true";
