@@ -5,7 +5,13 @@
   username,
   ...
 }: {
-  environment.systemPackages = with pkgs; [ocis];
+  environment = {
+    systemPackages = with pkgs; [ocis];
+    variables = {
+      OCIS_CONFIG_DIR = "/data/ocis/config";
+      OCIS_BASE_DATA_PATH = "/data/ocis/data";
+    };
+  };
   systemd.services.ocis = {
     description = "ownCloud Infinite Scale";
     after = ["network.target" "local-fs.target"];
