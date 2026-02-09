@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  username,
   ...
 }: {
   environment = {
@@ -12,14 +13,17 @@
     };
   };
   systemd.services.ocis = {
-    description = "oCIS Server";
-    after = ["network.target"];
+    description = "ownCloud Infinite Scale";
+    after = ["network.target" "local-fs.target"];
     wantedBy = ["multi-user.target"];
+
     serviceConfig = {
+      Type = "simple";
+      User = username;
+      Group = "users";
+      WorkingDirectory = "/data/ocis";
+      EnvironmentFile = "/data/ocis/runtime.env";
       ExecStart = "${pkgs.ocis}/bin/ocis server";
-      # Point to a mutable file on data drive
-      EnvironmentFile = "/mnt/data/ocis/runtime.env";
-      WorkingDirectory = "/mnt/data/ocis";
       Restart = "always";
     };
   };
