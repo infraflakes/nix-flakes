@@ -4,14 +4,14 @@
   username,
   ...
 }: {
-  users.users = {
-    ${username} = {
-      isNormalUser = true;
-      extraGroups = [
-        "networkmanager"
-        "wheel"
-      ];
-    };
+  programs.fish.enable = true;
+  users.users.${username} = {
+    isNormalUser = true;
+    shell = pkgs.fish;
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
   };
   # Locale
   i18n.defaultLocale = "en_US.UTF-8";
