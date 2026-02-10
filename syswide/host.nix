@@ -14,9 +14,10 @@
     ./core/fs.nix
 
     ./pkgs/podman.nix
-    ./pkgs/ocis.nix
     ./pkgs/tmux.nix
     ./pkgs/tools.nix
     ./pkgs/vcs.nix
+    ./pkgs/ocis.nix
+    ./pkgs/memos.nix
   ];
 }
