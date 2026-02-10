@@ -13,7 +13,9 @@
     ./core/networking.nix
     ./core/fs.nix
 
-    ./runtime/podman.nix
-    ./runtime/ocis.nix
+    ./pkgs/podman.nix
+    ./pkgs/ocis.nix
+    ./pkgs/tmux.nix
+    ./pkgs/tools.nix
   ];
 }
