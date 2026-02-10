@@ -6,7 +6,6 @@
 }: {
   #Sys pkgs
   environment.systemPackages = with pkgs; [
-    git
     smartmontools
     yazi
     htop

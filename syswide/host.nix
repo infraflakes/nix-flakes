@@ -17,5 +17,6 @@
     ./pkgs/ocis.nix
     ./pkgs/tmux.nix
     ./pkgs/tools.nix
+    ./pkgs/vcs.nix
   ];
 }
