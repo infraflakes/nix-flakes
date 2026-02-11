@@ -16,6 +16,7 @@
     ripgrep
     bat
     jq
+    brightnessctl
   ];
   # SSH
   services.openssh = {

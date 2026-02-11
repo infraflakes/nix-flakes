@@ -13,6 +13,7 @@
     music-discord-rpc
     easytag
     nicotine-plus
+    yt-dlp
     rmpc
     mpc
     mpd

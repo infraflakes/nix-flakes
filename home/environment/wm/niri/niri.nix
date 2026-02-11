@@ -8,13 +8,7 @@
 in {
   imports = [inputs.niri.homeModules.niri];
   nixpkgs.overlays = [inputs.niri.overlays.niri];
-  home.packages = with pkgs; [
-    xwayland-satellite
-    libnotify
-    glib
-    brightnessctl
-  ];
-  services.cliphist.enable = true;
+  home.packages = with pkgs; [xwayland-satellite];
   programs.niri = {
     enable = true;
     package = pkgs.niri;
@@ -76,13 +70,13 @@ in {
           output "eDP-1" {
               //variable-refresh-rate on-demand=true
               variable-refresh-rate
-              mode "1920x1080@143.998"
+              mode "1920x1080@144"
               scale 1
 
               // Transform allows to rotate the output counter-clockwise, valid values are:
               // normal, 90, 180, 270, flipped, flipped-90, flipped-180 and flipped-270.
               transform "normal"
-              position x=1280 y=0
+              position x=0 y=0
           }
           layout {
               gaps 16
@@ -140,6 +134,7 @@ in {
             DISPLAY ":0"
           }
 
+          spawn-at-startup "fcitx5"
           spawn-at-startup "dms run"
 
           binds {

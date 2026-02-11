@@ -4,11 +4,12 @@
   ...
 }: {
   imports = [
-    ./wm/hyprland/hypr.nix
-    ./wm/hyprland/swappy.nix
     ./wm/dms.nix
-    ./wm/mangowc/mangowc.nix
-    ./wm/mangowc/swappy.nix
+    # ./wm/hyprland/hypr.nix
+    # ./wm/hyprland/swappy.nix
+    # ./wm/mangowc/mangowc.nix
+    # ./wm/mangowc/swappy.nix
+    ./wm/niri/niri.nix
 
     ./ui/fonts.nix
     ./ui/theme.nix

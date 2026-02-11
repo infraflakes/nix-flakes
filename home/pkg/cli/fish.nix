@@ -9,6 +9,7 @@
     shellAliases = {
       tm = "tmux new-session -A";
       cd = "scd";
+      smd = "srn music download";
       cat = "bat";
       grep = "rg";
       se = "sudo -E -s nvim";

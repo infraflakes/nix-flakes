@@ -5,16 +5,15 @@
   inputs,
   ...
 }: {
-  services.displayManager.ly = {
-    enable = true;
-    x11Support = true;
+  # programs.hyprland.enable = true;
+  services.displayManager = {
+    # gdm.enable = true;
+    ly.enable = true;
+    sessionPackages = [
+      pkgs.niri
+      # inputs.mangowc.packages.${pkgs.stdenv.hostPlatform.system}.mango
+    ];
   };
-  #services.displayManager.gdm.enable = true;
-  programs.hyprland.enable = true;
-  # services.displayManager.sessionPackages = [pkgs.niri];
-  services.displayManager.sessionPackages = [
-    inputs.mangowc.packages.${pkgs.stdenv.hostPlatform.system}.mango
-  ];
   xdg.portal = {
     enable = true;
     wlr = {
@@ -29,8 +28,8 @@
     extraPortals = with pkgs; [
       pkgs.xdg-desktop-portal-hyprland
       xdg-desktop-portal-gtk
-      xdg-desktop-portal-wlr
-      # xdg-desktop-portal-gnome
+      # xdg-desktop-portal-wlr
+      xdg-desktop-portal-gnome
     ];
     config = {
       common = {
