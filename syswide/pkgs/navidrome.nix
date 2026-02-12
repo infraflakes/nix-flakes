@@ -11,6 +11,7 @@
   # doas zfs set atime=off iris_pool/navidrome
   # doas zfs set mountpoint=legacy iris_pool/navidrome
   # doas zfs set com.sun:auto-snapshot=true iris_pool/navidrome
+  # doas zfs destroy -r iris_pool/navidrome
   fileSystems."/data/navidrome" = {
     device = "iris_pool/navidrome";
     fsType = "zfs";
