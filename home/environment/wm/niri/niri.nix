@@ -2,10 +2,7 @@
   pkgs,
   inputs,
   ...
-}: let
-  scriptsDir = builtins.toString ../../shared/scripts/sys;
-  rofiScriptsDir = builtins.toString ../../shared/scripts/rofi;
-in {
+}: {
   imports = [inputs.niri.homeModules.niri];
   nixpkgs.overlays = [inputs.niri.overlays.niri];
   home.packages = with pkgs; [xwayland-satellite];
@@ -68,9 +65,9 @@ in {
               block-out-from "screencast"
           }
           output "eDP-1" {
-              //variable-refresh-rate on-demand=true
-              variable-refresh-rate
-              mode "1920x1080@144"
+              variable-refresh-rate on-demand=true
+              //variable-refresh-rate
+              mode "1920x1080@144.000"
               scale 1
 
               // Transform allows to rotate the output counter-clockwise, valid values are:
@@ -135,7 +132,7 @@ in {
           }
 
           spawn-at-startup "fcitx5"
-          spawn-at-startup "dms run"
+          //spawn-at-startup "dms run"
 
           binds {
               XF86AudioRaiseVolume allow-when-locked=true { spawn "dms" "ipc" "call" "audio" "increment" "2"; }

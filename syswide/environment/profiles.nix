@@ -7,8 +7,8 @@
 }: {
   # programs.hyprland.enable = true;
   services.displayManager = {
-    # gdm.enable = true;
-    ly.enable = true;
+    gdm.enable = true;
+    # ly.enable = true;
     sessionPackages = [
       pkgs.niri
       # inputs.mangowc.packages.${pkgs.stdenv.hostPlatform.system}.mango
