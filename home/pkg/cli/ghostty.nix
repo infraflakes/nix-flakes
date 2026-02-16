@@ -9,10 +9,10 @@
     settings = {
       font-family = "JetBrains Mono Nerd Font";
       font-size = 13;
-      theme = "Kanagawa Wave";
+      theme = "Vague";
       confirm-close-surface = false;
-      # command = "${pkgs.fish}/bin/fish --login --interactive";
-      command = "${pkgs.zsh}/bin/zsh -l -i";
+      command = "${pkgs.fish}/bin/fish --login --interactive";
+      # command = "${pkgs.zsh}/bin/zsh -l -i";
       keybind = [
         "clear"
         # "alt+n=new_tab"

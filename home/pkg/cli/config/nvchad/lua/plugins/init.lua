@@ -4,11 +4,20 @@ return {
     event = "BufWritePre",
     opts = require "configs.conform",
   },
+
+  {
+    "vague-theme/vague.nvim",
+    lazy = false, -- make sure we load this during startup if it is your main colorscheme
+    priority = 1000, -- make sure to load this before all the other plugins
+    config = function()
+      vim.cmd "colorscheme vague"
+    end,
+  },
   -- {
-  -- 	"neovim/nvim-lspconfig",
-  -- 	config = function()
-  -- 		require("configs.lspconfig")
-  -- 	end,
+  --   "neovim/nvim-lspconfig",
+  --   config = function()
+  --     require "configs.lspconfig"
+  --   end,
   -- },
 
   { import = "nvchad.blink.lazyspec" },

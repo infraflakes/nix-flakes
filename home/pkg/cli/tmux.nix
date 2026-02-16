@@ -9,18 +9,17 @@
   };
   programs.tmux = {
     enable = true;
-    # shell = "${pkgs.fish}/bin/fish";
-    shell = "${pkgs.zsh}/bin/zsh";
+    shell = "${pkgs.fish}/bin/fish";
+    # shell = "${pkgs.zsh}/bin/zsh";
     historyLimit = 50000;
     baseIndex = 1;
     mouse = true;
     escapeTime = 10;
     keyMode = "vi";
     plugins = with pkgs.tmuxPlugins; [
+      nord
       sensible
       yank
-      resurrect
-      continuum
     ];
     # Extra lines that don’t have first-class options
     extraConfig = ''
@@ -67,28 +66,23 @@
       # 3.  any other key (or Escape) just cancels the mode
       bind -T move Escape switch-client -T root
 
-      # ---------- resurrect / continuum ----------
-      set -g @resurrect-capture-pane-contents 'on'   # optional: keep scrollback
-      set -g @continuum-save-interval '1'            # minutes between snapshots
-      set -g @continuum-restore 'on'                 # restore on tmux start
-
       # ------ theming -------
-      set -g status-right-style 'fg=blue bg=default'
-      set -g status-right '%Y-%m-%d %H:%M '
-      set -g status-right-length 50
-
-      set -g status-left '[#S] '
-      set -g status-left-length 0        # 40 plenty of room, or 0 for unlimited
-
-      set -g status-position bottom
-      set -g status-justify left
-      set -g status-style 'bg=default'
-
-      setw -g window-status-style 'fg=green bg=black'
-      setw -g window-status-format ' #I #[fg=white]#W #[fg=blue]#F '
-
-      setw -g window-status-current-style 'fg=black bg=blue'
-      setw -g window-status-current-format ' #I #W #F '
+      # set -g status-right-style 'fg=blue bg=default'
+      # set -g status-right '%Y-%m-%d %H:%M '
+      # set -g status-right-length 50
+      #
+      # set -g status-left '[#S] '
+      # set -g status-left-length 0        # 40 plenty of room, or 0 for unlimited
+      #
+      # set -g status-position bottom
+      # set -g status-justify left
+      # set -g status-style 'bg=default'
+      #
+      # setw -g window-status-style 'fg=green bg=black'
+      # setw -g window-status-format ' #I #[fg=white]#W #[fg=blue]#F '
+      #
+      # setw -g window-status-current-style 'fg=black bg=blue'
+      # setw -g window-status-current-format ' #I #W #F '
     '';
   };
 }

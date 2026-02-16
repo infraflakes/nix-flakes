@@ -14,8 +14,13 @@
       bindkey '^[OC' forward-word
       bindkey '^[[D' backward-word
       bindkey '^[[C' forward-word
+      bindkey "^[[D" backward-char          # Left
+      bindkey "^[[C" forward-char           # Right
+      bindkey "^[[1;2D" backward-word    # Shift + Left
+      bindkey "^[[1;2C" forward-word     # Shift + Right
+      bindkey "^[[1;2A" up-line-or-history # Shift + Up
+      bindkey "^[[1;2B" down-line-or-history # Shift + Down
       eval "$(scd init zsh)"
-      eval "$(starship init zsh)"
       setopt MENU_COMPLETE
       zmodload zsh/complist
       zstyle ':completion:*' menu yes select

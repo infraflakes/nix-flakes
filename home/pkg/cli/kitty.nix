@@ -12,8 +12,8 @@
       size = 13;
     };
     settings = {
-      # shell = "${pkgs.fish}/bin/fish";
-      shell = "${pkgs.zsh}/bin/zsh";
+      shell = "${pkgs.fish}/bin/fish";
+      # shell = "${pkgs.zsh}/bin/zsh";
       hide_window_decorations = "yes";
       confirm_os_window_close = 0;
       window_padding_width = 15;
