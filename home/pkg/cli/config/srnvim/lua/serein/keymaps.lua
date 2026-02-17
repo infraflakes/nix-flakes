@@ -13,6 +13,10 @@ vim.keymap.set("n", "<leader>wr", [[:%s///g<Left><Left><Left>]], { desc = "Subst
 vim.keymap.set("n", "<leader>e", "<cmd>Neotree toggle<CR>", { desc = "[E]xplorer Neo-tree" })
 vim.keymap.set("n", "U", "<C-r>", { noremap = true, desc = "Redo" })
 
+-- Comment lines with space + /
+vim.keymap.set("n", "<leader>/", "gcc", { remap = true, desc = "Comment toggle line" })
+vim.keymap.set("x", "<leader>/", "gc", { remap = true, desc = "Comment toggle selection" })
+
 vim.schedule(function()
   local builtin = require "telescope.builtin"
   vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "[F]ind [F]iles" })
