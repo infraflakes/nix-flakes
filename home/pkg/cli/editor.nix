@@ -6,6 +6,7 @@
 }: {
   home = {
     packages = with pkgs; [
+      fd
       fzf
       ripgrep
       gcc
@@ -25,5 +26,5 @@
     vimAlias = true;
   };
 
-  home.file.".config/nvim".source = ./config/nvchad;
+  home.file.".config/nvim".source = ./config/srnvim;
 }

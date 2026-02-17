@@ -8,16 +8,6 @@ return {
       local alpha = require "alpha"
       local dashboard = require "alpha.themes.dashboard"
 
-      -- local palette = require("catppuccin.palettes").get_palette()
-      -- vim.api.nvim_create_autocmd("ColorScheme", {
-      --   pattern = "*",
-      --   callback = function()
-      --     vim.api.nvim_set_hl(0, "Type", { fg = palette.blue, bold = true }) -- ascii header
-      --     vim.api.nvim_set_hl(0, "Keyword", { fg = palette.blue }) -- button keys
-      --     vim.api.nvim_set_hl(0, "Function", { fg = palette.comment }) -- button desc
-      --   end,
-      -- })
-
       vim.api.nvim_exec_autocmds("ColorScheme", { pattern = "*" })
       -- Define Main Dashboard
       function OpenMainDashboard()

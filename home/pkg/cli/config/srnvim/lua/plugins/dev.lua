@@ -34,36 +34,40 @@ return {
   },
 
   { -- Highlight, edit, and navigate code
-  "nvim-treesitter/nvim-treesitter",
-  build = ":TSUpdate",
-  branch = "master",  -- Explicitly specify master branch
-  lazy = false,       -- Important: treesitter doesn't support lazy loading
-  config = function()
-    local configs = require("nvim-treesitter.configs")
-    configs.setup({
-      ensure_installed = {
-        "bash",
-        "c",
-        "diff",
-        "html",
-        "lua",
-        "luadoc",
-        "markdown",
-        "markdown_inline",
-        "query",
-        "vim",
-        "vimdoc",
-      },
-      auto_install = true,
-      highlight = {
-        enable = true,
-      },
-      indent = {
-        enable = true,
-      },
-    })
-  end,
-},
+    "nvim-treesitter/nvim-treesitter",
+    build = ":TSUpdate",
+    branch = "master", -- Explicitly specify master branch
+    lazy = false, -- Important: treesitter doesn't support lazy loading
+    config = function()
+      local configs = require "nvim-treesitter.configs"
+      configs.setup {
+        ensure_installed = {
+          "bash",
+          "c",
+          "diff",
+          "html",
+          "lua",
+          "luadoc",
+          "markdown",
+          "markdown_inline",
+          "query",
+          "vim",
+          "vimdoc",
+          "svelte",
+          "typescript",
+          "go",
+          "yaml",
+        },
+        auto_install = true,
+        highlight = {
+          enable = true,
+        },
+        indent = {
+          enable = true,
+        },
+      }
+    end,
+  },
 
   {
     "hrsh7th/nvim-cmp",

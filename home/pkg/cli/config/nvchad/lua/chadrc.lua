@@ -7,7 +7,6 @@ local M = {}
 
 M.ui = {
   theme = "vague",
-  transparency = true,
   tabufline = {
     enabled = false,
     lazyload = false,
