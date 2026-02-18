@@ -6,6 +6,19 @@ return {
     "MunifTanjim/nui.nvim",
     "s1n7ax/nvim-window-picker",
   },
+  keys = {
+    {
+      "<leader>e",
+      function()
+        require("neo-tree.command").execute {
+          toggle = true,
+          reveal = true,
+          position = "float",
+        }
+      end,
+      desc = "Neo-tree Reveal Float",
+    },
+  },
   config = function()
     require("neo-tree").setup {
       window = {
@@ -38,9 +51,4 @@ return {
       },
     }
   end,
-  vim.keymap.set("n", "<leader>e", function()
-    require("neo-tree.command").execute {
-      reveal = true, -- THIS IS THE KEY: Points to current file
-    }
-  end, { desc = "Neo-tree reveal float" }),
 }
