@@ -8,17 +8,26 @@ return {
   },
   config = function()
     require("neo-tree").setup {
+      window = {
+        position = "float",
+        width = 35,
+        mapping_options = {
+          noremap = true,
+          nowait = true,
+        },
+      },
       filesystem = {
         use_libuv_file_watcher = true,
         follow_current_file = {
-          enabled = true,
-        },
-        window = {
-          mappings = {
-            ["<cr>"] = "open_with_window_picker", -- Use enter to trigger window picker
-          },
+          enabled = true, -- This finds the file in the tree
+          leave_dirs_open = true, -- Keeps the path expanded
         },
         hijack_netrw_behavior = "open_default",
+        window = {
+          mappings = {
+            ["<cr>"] = "open_with_window_picker",
+          },
+        },
       },
       buffers = {
         window = {
@@ -27,14 +36,11 @@ return {
           },
         },
       },
-      window_picker = {
-        enabled = true,
-        picker = "fzf", -- also accepts "fzf" if you got telescope or fzf
-        exclude = {
-          filetype = { "neo-tree", "neo-tree-popup", "notify" },
-          buftype = { "terminal", "quickfix", "nofile" },
-        },
-      },
     }
   end,
+  vim.keymap.set("n", "<leader>e", function()
+    require("neo-tree.command").execute {
+      reveal = true, -- THIS IS THE KEY: Points to current file
+    }
+  end, { desc = "Neo-tree reveal float" }),
 }
