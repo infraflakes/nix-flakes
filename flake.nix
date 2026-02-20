@@ -34,7 +34,6 @@
     srn-coreutils,
     srn-cd,
     dms,
-    # mangowc,
     niri,
     ...
   } @ inputs: let

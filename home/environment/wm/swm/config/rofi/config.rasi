@@ -1,0 +1,43 @@
+@theme "DarkBlue.rasi"
+
+* { // Global settings, can override defaults
+    background-color: #282A2E;
+    border-color: #282A2E;
+    font: "Terminess Nerd Font 24";
+}
+
+/* Custom element styles */
+mode-switcher {
+    enabled: false;
+}
+window {
+    width: 45%;        /* Percentage of your screen width */
+    height: 45%;        /* Percentage of your screen width */
+}
+#textbox {
+    text-color: #E65740;
+}
+#element.normal.normal {
+    text-color:       #ffff;
+}
+#element.alternate.normal {
+    text-color:       #ffff;
+}
+#element.selected.normal {
+    background-color: #E65740;
+}
+#prompt, button{
+    text-color: #E65740;
+}
+#window {
+    background-color: #282A2E;
+}
+#listview {
+    border-color: #E65740;
+}
+#entry {
+    text-color: #ffff;
+}
+#textbox-prompt-colon {
+    text-color: #E65740;
+}

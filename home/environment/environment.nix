@@ -10,6 +10,8 @@
     # ./wm/mangowc/mangowc.nix
     # ./wm/mangowc/swappy.nix
     ./wm/niri/niri.nix
+    ./wm/swm/swm.nix
+    ./wm/swm/rofi.nix
 
     ./ui/fonts.nix
     ./ui/theme.nix

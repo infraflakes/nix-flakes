@@ -19,5 +19,8 @@
     ./media/multimedia.nix
     ./media/social.nix
     ./media/vpn.nix
+
+    #Utils
+    ./utils/notes.nix
   ];
 }

@@ -12,6 +12,7 @@
       theme = "Vague";
       confirm-close-surface = false;
       command = "${pkgs.fish}/bin/fish --login --interactive";
+      gtk-titlebar = false;
       # command = "${pkgs.zsh}/bin/zsh -l -i";
       keybind = [
         "clear"

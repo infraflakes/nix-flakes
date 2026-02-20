@@ -25,7 +25,7 @@ return {
           dashboard.button("g", "  Git Repositories", ":OpenGitRepos <CR>"),
           dashboard.button("n", "  New File", ":ene <BAR> startinsert <CR>"),
           dashboard.button("ff", "󰈞  Find Files", ":Telescope find_files<CR>"),
-          dashboard.button("fg", "󰱼  Grep Text", ":Telescope live_grep<CR>"),
+          dashboard.button("fw", "󰱼  Grep Text", ":Telescope live_grep<CR>"),
           dashboard.button("fr", "  Recent Files", ":Telescope oldfiles<CR>"),
           dashboard.button("q", "  Quit Neovim", ":qa<CR>"),
         }
