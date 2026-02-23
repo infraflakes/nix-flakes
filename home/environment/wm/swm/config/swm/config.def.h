@@ -1,15 +1,19 @@
 /* See LICENSE file for copyright and license details. */
 
 #include <X11/XF86keysym.h>
+// theme
+#include "themes/vague.h"
+
 
 /* appearance */
-static const unsigned int borderpx  = 2;        /* border pixel of windows */
+static const unsigned int borderpx  = 0;        /* border pixel of windows */
 static const unsigned int default_border = 0;   /* to switch back to default border after dynamic border resizing via keybinds */
 static const unsigned int snap      = 32;       /* snap pixel */
-static const unsigned int gappih    = 30;       /* horiz inner gap between windows */
-static const unsigned int gappiv    = 30;       /* vert inner gap between windows */
-static const unsigned int gappoh    = 30;       /* horiz outer gap between windows and screen edge */
-static const unsigned int gappov    = 30;       /* vert outer gap between windows and screen edge */
+static const unsigned int gap_value    = 0;       /* horiz inner gap between windows */
+static const unsigned int gappih    = gap_value;       /* horiz inner gap between windows */
+static const unsigned int gappiv    = gap_value;       /* vert inner gap between windows */
+static const unsigned int gappoh    = gap_value;       /* horiz outer gap between windows and screen edge */
+static const unsigned int gappov    = gap_value;       /* vert outer gap between windows and screen edge */
 static const int smartgaps          = 0;        /* 1 means no outer gap when there is only one window */
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
 static const unsigned int systrayspacing = 2;   /* systray spacing */
@@ -40,23 +44,18 @@ static const int new_window_attach_on_end = 0; /*  1 means the new window will a
 
 static const char *fonts[]          = {"JetBrainsMonoNerdFont:size=13"};
 
-// theme
-#include "themes/onedark.h"
-
 static const char *colors[][3]      = {
     /*                     fg       bg      border */
     [SchemeNorm]       = { gray3,   black,  gray2 },
-    [SchemeSel]        = { gray4,   blue,   blue  },
+    [SchemeSel]        = { gray3,   blue,   blue  },
     [SchemeTitle]      = { white,   black,  black }, // active window title
     [TabSel]           = { blue,    gray2,  black },
     [TabNorm]          = { gray3,   black,  black },
-    [SchemeTag]        = { gray3,   black,  black },
+    [SchemeTag]        = { gray2,   black,  black },
     [SchemeTag1]       = { blue,    black,  black },
-    [SchemeTag2]       = { red,     black,  black },
-    [SchemeTag3]       = { orange,  black,  black },
-    [SchemeTag4]       = { green,   black,  black },
-    [SchemeTag5]       = { pink,    black,  black },
-    [SchemeLayout]     = { green,   black,  black },
+    [SchemeTag2]       = { purple,     black,  black },
+    [SchemeTag3]       = { pink,  black,  black },
+    [SchemeLayout]     = { blue,   black,  black },
     [SchemeBtnPrev]    = { green,   black,  black },
     [SchemeBtnNext]    = { yellow,  black,  black },
     [SchemeBtnClose]   = { red,     black,  black },
@@ -66,14 +65,14 @@ static const char *colors[][3]      = {
 static char *tags[] = {"1", "2", "3", "4", "5", "6", "7", "8", "9"};
 
 static const int tagschemes[] = {
-    SchemeTag1, SchemeTag2, SchemeTag3, SchemeTag4, SchemeTag5, SchemeTag1, SchemeTag2, SchemeTag3, SchemeTag4
+    SchemeTag1, SchemeTag2, SchemeTag3, SchemeTag2, SchemeTag1, SchemeTag2, SchemeTag3, SchemeTag1, SchemeTag2
 };
 
 static const char* rofi[] = { "rofi", "-show" , "drun", NULL };
 
 static const Launcher launchers[] = {
     /* command     name to display */
-    { rofi,         "" },
+    { rofi,         "" },
 };
 
 static const unsigned int ulinepad      = 5; /* horizontal padding between the underline and tag */

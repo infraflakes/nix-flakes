@@ -15,5 +15,5 @@ feh --bg-scale ~/.config/wallpapers/wave.png &
 fcitx5 &
 swm_bar &
 # xrandr --output DP-2 --mode 1920x1080 --rate 144.00
-#while type swm >/dev/null; do swm && continue || break; done
+while type swm >/dev/null; do swm && continue || break; done
 exec swm

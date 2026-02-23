@@ -19,6 +19,7 @@
       tapping = true;
       tappingButtonMap = "lrm";
       accelSpeed = "0.5";
+      disableWhileTyping = true;
     };
   };
   programs.slock.enable = true;
