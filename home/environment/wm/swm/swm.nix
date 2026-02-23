@@ -21,7 +21,6 @@ in {
     pkgs.sx
     pkgs.dash
     pkgs.iw
-    pkgs.slock
     pkgs.maim
     pkgs.xclip
     pkgs.bc

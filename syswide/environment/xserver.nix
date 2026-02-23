@@ -21,4 +21,5 @@
       accelSpeed = "0.5";
     };
   };
+  programs.slock.enable = true;
 }
