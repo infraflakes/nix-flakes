@@ -87,7 +87,8 @@ static const Rule rules[] = {
      */
     /* class      instance    title       tags mask     iscentered   isfloating   monitor */
     // { "Gimp",     NULL,       NULL,       0,            0,           1,           -1 },
-    { "Firefox",  NULL,       NULL,       1 << 8,       0,           0,           -1 },
+    // { "Firefox",  NULL,       NULL,       1 << 8,       0,           0,           -1 },
+    { "copyq",       NULL,       NULL,       0,            0,           1,           -1 },
 };
 
 /* layout(s) */
@@ -158,6 +159,7 @@ static const Key keys[] = {
     { MODKEY,                           XK_space,       spawn,          SHCMD("rofi -show drun") },
     { MODKEY,                           XK_Return,  spawn,          SHCMD("ghostty")},
     { MODKEY,                           XK_l,  spawn,          SHCMD("slock")},
+    { MODKEY,                           XK_v,  spawn,          SHCMD("copyq menu")},
     { MODKEY,                       XK_BackSpace,          spawn,           {.v = quit_swm } },        // quit swm MOD+backspace
     // restart
     { MODKEY|ShiftMask,                 XK_r,       restart,           {0} },
