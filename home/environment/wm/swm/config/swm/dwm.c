@@ -3395,11 +3395,10 @@ void updatebarpos(Monitor *m) {
 
   if(m->showtab == showtab_always
 	   || ((m->showtab == showtab_auto) && (nvis > -1) && (m->lt[m->sellt]->arrange == monocle))) { //nvis > 0 make it so monocle special layout is permanent
-    	  	m->topbar = !toptab;
-                m->wh -= th + ((m->topbar == toptab && m->showbar) ? 0 : m->gappoh) - m->gappoh;
-		m->ty = m->toptab ? m->wy + ((m->topbar && m->showbar) ? 0 : m->gappoh) : m->wy + m->wh - m->gappoh;
-		if ( m->toptab )
-                   m->wy += th + ((m->topbar && m->showbar) ? 0 : m->gappoh) - m->gappoh;
+    	  	m->topbar = toptab;
+                m->wh -= th;
+		m->ty = m->wy + bh + m->gappoh;
+		m->wy += th;
 	} else {
         m->ty = -th - m->gappoh;
         m->topbar = topbar;
@@ -3413,7 +3412,7 @@ void updatebarpos(Monitor *m) {
       m->by = m->topbar ? m->wy : m->wy + m->wh;
     }
     if (m->topbar){
-      m->wy = floatbar?bh+gappoh:bh;
+      m->wy = floatbar?th+bh+gappoh:th+bh;
     }
   } else
     m->by = -bh - m->gappoh;
