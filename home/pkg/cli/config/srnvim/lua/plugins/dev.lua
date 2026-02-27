@@ -135,6 +135,7 @@ return {
         rs = { "rustfmt" },
         go = { "gofmt" },
         cpp = { "clang-format" },
+        c = { "clang-format" },
       },
     },
   },

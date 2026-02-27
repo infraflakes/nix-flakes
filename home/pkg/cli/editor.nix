@@ -14,6 +14,7 @@
       stylua
       alejandra
       antigravity
+      clang-tools
     ];
     sessionVariables = {
       EDITOR = "nvim";
