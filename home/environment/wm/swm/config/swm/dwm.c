@@ -3385,9 +3385,11 @@ updatepreview(void)
 void updatebarpos(Monitor *m) {
   Client *c;
   int nvis = 0;
+  int wy_orig;
 
   m->wy = m->my;
   m->wh = m->mh;
+  wy_orig = m->wy;
 
   for(c = m->clients; c; c = c->next) {
 		if(ISVISIBLE(c)) ++nvis;
@@ -3406,10 +3408,10 @@ void updatebarpos(Monitor *m) {
   if (m->showbar) {
     if(floatbar){
       m->wh = m->wh - m->gappoh - bh;
-      m->by = m->topbar ? m->wy + m->gappoh : m->wy + m->wh;
+      m->by = m->topbar ? wy_orig + m->gappoh : m->wy + m->wh;
     }else{
       m->wh = m->wh - bh;
-      m->by = m->topbar ? m->wy : m->wy + m->wh;
+      m->by = m->topbar ? wy_orig : m->wy + m->wh;
     }
     if (m->topbar){
       m->wy = floatbar?th+bh+gappoh:th+bh;
