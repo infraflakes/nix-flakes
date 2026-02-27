@@ -1578,6 +1578,16 @@ void
 drawtab(Monitor *m) {
 	Client *c;
 	int i;
+	int nvis = 0;
+	for(c = m->clients; c; c = c->next) {
+		if(ISVISIBLE(c)) ++nvis;
+	}
+	if (nvis == 0) {
+		XUnmapWindow(dpy, m->tabwin);
+		return;
+	}
+	XMapRaised(dpy, m->tabwin);
+
   char *btn_prev = "";
 	char *btn_next = "";
 	char *btn_close = " ";
