@@ -14,18 +14,6 @@
       url = "github:infraflakes/srn-cd";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # dms = {
-    #   url = "github:AvengeMedia/DankMaterialShell/stable";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
-    # mangowc = {
-    #   url = "github:DreamMaoMao/mangowc";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
-    # niri = {
-    #   url = "github:sodiboo/niri-flake";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
   };
   outputs = {
     self,
@@ -33,8 +21,6 @@
     home-manager,
     srn-coreutils,
     srn-cd,
-    # dms,
-    # niri,
     ...
   } @ inputs: let
     system = "x86_64-linux";
@@ -55,7 +41,6 @@
     };
     # DevShells
     devShells.${system} = {
-      rs = import ./devshells/rs.nix {inherit pkgs;};
       go = import ./devshells/go.nix {inherit pkgs;};
       js = import ./devshells/js.nix {inherit pkgs;};
       py = import ./devshells/py.nix {inherit pkgs;};

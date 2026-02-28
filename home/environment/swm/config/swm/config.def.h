@@ -79,7 +79,7 @@ static const char* colors[][3] = {
 };
 
 /* tagging */
-static char* tags[] = {"1", "2", "3", "4", "5", "6", "7", "8", "9"};
+static char* tags[] = {"1", "2", "3", "4", "5"};
 
 static const int tagschemes[] = {SchemeTag1, SchemeTag2, SchemeTag3,
                                  SchemeTag2, SchemeTag1, SchemeTag2,
