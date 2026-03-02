@@ -18,5 +18,6 @@
     ./pkgs/tools.nix
     ./pkgs/vcs.nix
     ./pkgs/ocis.nix
+    ./pkgs/nextcloud.nix
   ];
 }
