@@ -13,19 +13,19 @@
     options = ["nofail"];
     depends = ["/data"]; # Ensures the parent mount is ready first
   };
-  systemd.services.nextcloud = {
-    description = "Nextcloud";
-    after = ["network.target" "data-nextcloud.mount"];
-    wantedBy = ["multi-user.target"];
-
-    serviceConfig = {
-      Type = "simple";
-      User = "root";
-      Group = "root";
-      WorkingDirectory = "/data/nextcloud";
-      ExecStart = "${pkgs.podman}/bin/podman compose up";
-      ExecStop = "${pkgs.podman}/bin/podman compose down";
-      Restart = "always";
-    };
-  };
+  # systemd.services.nextcloud = {
+  #   description = "Nextcloud";
+  #   after = ["network.target" "data-nextcloud.mount"];
+  #   wantedBy = ["multi-user.target"];
+  #
+  #   serviceConfig = {
+  #     Type = "simple";
+  #     User = "root";
+  #     Group = "root";
+  #     WorkingDirectory = "/data/nextcloud";
+  #     ExecStart = "${pkgs.podman}/bin/podman compose up";
+  #     ExecStop = "${pkgs.podman}/bin/podman compose down";
+  #     Restart = "always";
+  #   };
+  # };
 }
