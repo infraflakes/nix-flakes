@@ -40,7 +40,7 @@ static const char *brightdown[] = { "swmctl", "brightness", "down", "5",   NULL 
 
 static const char* quit_swm[] = {"swmctl", "quit", NULL};
 static const int new_window_attach_on_end = 1; /*  1 means the new window will attach on the end; 0 means the new window will attach on the front,default is front */
-#define ICONSIZE 10   /* icon size */
+#define ICONSIZE 20   /* icon size */
 #define ICONSPACING 8 /* space between icon and title */
 
 static const char* fonts[] = {"JetBrainsMonoNerdFont:size=13"};

@@ -1520,9 +1520,9 @@ void drawtab(Monitor* m) {
   }
   XMapRaised(dpy, m->tabwin);
 
-  char* btn_prev = "";
-  char* btn_next = "";
-  char* btn_close = " ";
+  char* btn_prev = "";
+  char* btn_next = "";
+  char* btn_close = " ";
   int buttons_w = 0;
   int sorted_label_widths[MAXTABS];
   int tot_width = 0;
