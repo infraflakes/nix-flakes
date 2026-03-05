@@ -100,7 +100,9 @@ static const Rule rules[] = {
      */
     /* class      instance    title       tags mask     iscentered   isfloating
        monitor */
-    {"copyq", NULL, NULL, 0, 0, 1, -1},
+    { "Toolkit",  NULL,       "Picture-in-Picture",   0,         1,          -1 },
+    { "firefox",  NULL,       "Picture-in-Picture",   0,         1,          -1 },
+    { "Chromium", NULL,       "Picture-in-Picture",   0,         1,          -1 },
 };
 
 /* layout(s) */
