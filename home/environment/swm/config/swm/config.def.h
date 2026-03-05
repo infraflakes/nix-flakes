@@ -71,7 +71,6 @@ static const char* colors[][3] = {
     [SchemeTag1] = {blue, black, black},
     [SchemeTag2] = {purple, black, black},
     [SchemeTag3] = {pink, black, black},
-    [SchemeLayout] = {blue, black, black},
     [SchemeBtnPrev] = {green, black, black},
     [SchemeBtnNext] = {yellow, black, black},
     [SchemeBtnClose] = {red, black, black},
@@ -174,10 +173,8 @@ static const Key keys[] = {
     {MODKEY | ControlMask, XK_Right, tagtonext, {0}},
     {MODKEY, XK_Tab, view, {0}},
 
-    // overall gaps
-    //{ MODKEY|ControlMask,               XK_i,       incrgaps,       {.i = +10
-    //} }, { MODKEY|ControlMask,               XK_d,       incrgaps,       {.i =
-    //-10 } },
+    // { MODKEY|ControlMask,               XK_i,       incrgaps,       {.i = +10 } },
+    // { MODKEY|ControlMask,               XK_d,       incrgaps,       {.i = -10 } },
 
     // kill window
     {MODKEY, XK_q, killclient, {0}},

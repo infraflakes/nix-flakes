@@ -98,7 +98,6 @@ enum {
   SchemeTag3,
   SchemeTag4,
   SchemeTag5,
-  SchemeLayout,
   TabSel,
   TabNorm,
   SchemeBtnPrev,
@@ -141,7 +140,6 @@ enum {
   ClkTabPrev,
   ClkTabNext,
   ClkTabClose,
-  ClkLtSymbol,
   ClkStatusText,
   ClkWinTitle,
   ClkClientWin,
@@ -381,7 +379,6 @@ static Client* hiddenWinStack[hiddenWinStackMax];
 
 typedef struct Pertag Pertag;
 struct Monitor {
-  char ltsymbol[16];
   int num;
   int by;             /* bar geometry */
   int ty;             /* tab bar geometry */
@@ -532,14 +529,6 @@ void arrangemon(Monitor* m) {
   updatesystray();
   XMoveWindow(dpy, m->tagwin, m->wx + m->gappov, m->by);
 
-  /* Count visible windows for the layout symbol */
-  for (c = m->clients; c; c = c->next)
-    if (ISVISIBLE(c)) n++;
-  if (n > 0)
-    snprintf(m->ltsymbol, sizeof m->ltsymbol, "[%d]", n);
-  else
-    strncpy(m->ltsymbol, "[M]", sizeof m->ltsymbol);
-
   /* Position tab bar - always below status bar */
   m->ty = m->my + bh;
   m->wy = m->my + bh + th + m->gappoh;
@@ -606,12 +595,7 @@ void buttonpress(XEvent* e) {
       click = ClkTagBar;
       arg.ui = 1 << i;
       goto execute_handler;
-    } else if (ev->x < x + TEXTW(selmon->ltsymbol)) {
-      click = ClkLtSymbol;
-      goto execute_handler;
     }
-
-    x += TEXTW(selmon->ltsymbol);
 
     if (ev->x > selmon->ww - (int)TEXTW(stext))
       click = ClkStatusText;
@@ -903,7 +887,6 @@ Monitor* createmon(void) {
   m->borderpx = borderpx;
   for (i = 0; i < LENGTH(tags); i++) m->tagmap[i] = 0;
   m->previewshow = 0;
-  strncpy(m->ltsymbol, "[M]", sizeof m->ltsymbol);
   m->pertag = ecalloc(1, sizeof(Pertag));
   m->pertag->curtag = m->pertag->prevtag = 1;
 
@@ -1137,14 +1120,11 @@ void drawbar(Monitor* m) {
       drw_rect(drw, x + ulinepad, bh_n - ulinestroke - ulinevoffset,
                w - (ulinepad * 2), ulinestroke, 1, 0);
     /*if (occ & 1 << i)
-      drw_rect(drw, x + boxs, y + boxs, boxw, boxw,
+       drw_rect(drw, x + boxs, y + boxs, boxw, boxw,
                m == selmon && selmon->sel && selmon->sel->tags & 1 << i,
                urg & 1 << i); */
     x += w;
   }
-  w = TEXTW(m->ltsymbol);
-  drw_setscheme(drw, scheme[SchemeLayout]);
-  x = drw_text(drw, x, 0, w, bh, lrpad / 2, m->ltsymbol, 0);
 
   // CHANGE TITLE LENGTH
   w = 850;
