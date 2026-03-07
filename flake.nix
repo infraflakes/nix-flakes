@@ -14,6 +14,7 @@
       url = "github:infraflakes/srn-cd";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    # xlibre-overlay.url = "git+https://codeberg.org/takagemacoed/xlibre-overlay?ref=dev-for-26.05";
   };
   outputs = {
     self,
@@ -31,7 +32,10 @@
     # NixOS configuration
     nixosConfigurations.serein = nixpkgs.lib.nixosSystem {
       specialArgs = {inherit inputs username system;};
-      modules = [./syswide/host.nix];
+      modules = [
+        ./syswide/host.nix
+        # inputs.xlibre-overlay.nixosModules.overlay-xlibre-xserver
+      ];
     };
     # Home Manager
     homeConfigurations."${username}@${hostname}" = home-manager.lib.homeManagerConfiguration {
