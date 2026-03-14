@@ -26,7 +26,7 @@
     };
   };
   programs.jujutsu = {
-    enable = true;
+    enable = false;
     settings = {
       user = {
         email = "infraflakes@proton.me";

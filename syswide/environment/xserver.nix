@@ -7,6 +7,7 @@
 }: {
   services.xserver = {
     enable = true;
+    excludePackages = with pkgs; [xterm];
     videoDrivers = [
       "modesetting"
     ];
@@ -23,4 +24,5 @@
     };
   };
   programs.slock.enable = true;
+  programs.ssh.enableAskPassword = false;
 }

@@ -20,10 +20,10 @@
       # ];
       font = {
         normal = {
-          family = "JetBrains Mono Nerd Font";
-          style = "SemiBold";
+          family = "Terminess Nerd Font";
+          style = "Regular";
         };
-        size = 8.5;
+        size = 11.3;
       };
       terminal.shell = {
         program = "bash";
