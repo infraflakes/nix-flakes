@@ -36,10 +36,4 @@
     networkmanager.enable = true;
     nameservers = ["8.8.8.8" "1.1.1.1"];
   };
-  security.pam.services.swaylock = {};
-  systemd.sleep.extraConfig = ''
-    SuspendState=mem
-    HibernateState=disk
-    HibernateDelaySec=45min
-  '';
 }
