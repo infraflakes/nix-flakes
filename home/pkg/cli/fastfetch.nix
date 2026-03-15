@@ -7,7 +7,7 @@
     enable = true;
     settings = {
       logo = {
-        source = builtins.toString ./config/fastfetch/nix.txt;
+        source = builtins.toString ./config/fastfetch/cachy.txt;
         padding = {
           top = 2;
           right = 6;
