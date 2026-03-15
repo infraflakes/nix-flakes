@@ -9,7 +9,7 @@
     enable = true;
     excludePackages = with pkgs; [xterm];
     videoDrivers = [
-      "modesetting"
+      "nvidia"
     ];
     displayManager.startx.enable = true;
   };

@@ -4,9 +4,6 @@
   pkgs,
   ...
 }: {
-  services.xserver.videoDrivers = [
-    "nvidia"
-  ];
   boot.kernelParams = ["nvidia.NVreg_PreserveVideoMemoryAllocations=0"];
   hardware = {
     graphics = {
