@@ -1,14 +1,42 @@
-return { -- telescope with hidden files + fzf-native
+return {
   "nvim-telescope/telescope.nvim",
   dependencies = {
-    { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
     "nvim-lua/plenary.nvim",
   },
   config = function()
     local telescope = require "telescope"
+    local previewers = require "telescope.previewers"
 
     telescope.setup {
       defaults = {
+
+        -- Use fd for finding files (faster than find)
+        find_command = { "fd", "--type", "f", "--strip-cwd-prefix", "--hidden", "--exclude", ".git" },
+
+        -- Use rg for live_grep
+        vimgrep_arguments = {
+          "rg",
+          "--color=never",
+          "--no-heading",
+          "--with-filename",
+          "--line-number",
+          "--column",
+          "--smart-case",
+          "--hidden",
+          "--glob=!.git/*",
+        },
+
+        -- Faster previewing for large files
+        buffer_previewer_maker = function(filepath, bufnr, opts)
+          opts = opts or {}
+          filepath = vim.fn.expand(filepath)
+          vim.loop.fs_stat(filepath, function(_, stat)
+            if not stat or stat.size > 100000 then
+              return
+            end -- Don't preview files > 100KB
+            previewers.buffer_previewer_maker(filepath, bufnr, opts)
+          end)
+        end,
         file_ignore_patterns = {
           "__pycache__/",
           ".npm/",
@@ -73,17 +101,13 @@ return { -- telescope with hidden files + fzf-native
           "Videos/",
         },
       },
-      pickers = { find_files = { hidden = true } },
-      extensions = {
-        fzf = {
-          fuzzy = true,
-          override_generic_sorter = true,
-          override_file_sorter = true,
-          case_mode = "smart_case",
+      pickers = {
+        find_files = {
+          hidden = true,
+          theme = "ivy",
         },
       },
     }
-    telescope.load_extension "fzf" -- ONLY fzf, no tmux_sessions here
 
     -- standalone picker (NOT an extension)
     function _G.ToggleTmuxSessions(opts)
