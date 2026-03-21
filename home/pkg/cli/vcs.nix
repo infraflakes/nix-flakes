@@ -4,7 +4,7 @@
   ...
 }: {
   programs.direnv = {
-    enable = false;
+    enable = true;
   };
   programs.diff-so-fancy = {
     enable = true;

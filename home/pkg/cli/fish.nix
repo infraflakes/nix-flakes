@@ -18,6 +18,9 @@
       nvidia-gpu = "__NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia";
     };
     interactiveShellInit = ''
+      if test -e ~/.nix-profile/etc/profile.d/nix.fish
+          source ~/.nix-profile/etc/profile.d/nix.fish
+      end
       scd init fish | source
       fastfetch
       set username (whoami)

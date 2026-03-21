@@ -25,6 +25,13 @@
       inputs.srn-cd.packages.${pkgs.stdenv.hostPlatform.system}.default
       pkgs.lsd
       pkgs.home-manager
+      pkgs.bottom
+      pkgs.lm_sensors
+      pkgs.bluetuith
+      pkgs.pulsemixer
+      pkgs.nmap
+      pkgs.ripgrep
+      pkgs.bat
     ];
   };
   imports = [
