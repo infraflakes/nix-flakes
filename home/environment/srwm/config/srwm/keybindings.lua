@@ -70,15 +70,18 @@ end
 
 -- Volume Control
 srwm.key.bind("", "XF86AudioRaiseVolume", function()
-	srwm.spawn("wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%+")
+	-- Increments volume by 2%
+	srwm.spawn("pactl set-sink-volume @DEFAULT_SINK@ +2%")
 end)
 
 srwm.key.bind("", "XF86AudioLowerVolume", function()
-	srwm.spawn("wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-")
+	-- Decrements volume by 2%
+	srwm.spawn("pactl set-sink-volume @DEFAULT_SINK@ -2%")
 end)
 
 srwm.key.bind("", "XF86AudioMute", function()
-	srwm.spawn("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle")
+	-- Toggles mute status
+	srwm.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle")
 end)
 
 -- Brightness Control

@@ -5,7 +5,7 @@
 }: {
   imports = [
     ./srwm/srwm.nix
-    ./srwm/rofi.nix
+    ./srwm/others.nix
     ./ui/fonts.nix
     ./ui/wallpapers.nix
   ];

@@ -4,7 +4,7 @@ srwm.spawn_once("feh --bg-scale ~/.config/wallpapers/wave.png &")
 srwm.spawn_once("flameshot &")
 srwm.spawn_once("fcitx5 &")
 srwm.spawn_once("picom -b --config ~/.config/picom/picom.conf &")
-
+srwm.spawn_once("pulseaudio --start &")
 srwm.key.bind("Mod4", "space", function()
 	srwm.spawn("rofi -show drun -theme $HOME/.config/rofi/launcher.rasi")
 end)
