@@ -7,7 +7,7 @@
     enable = true;
     settings = {
       logo = {
-        source = builtins.toString ./config/fastfetch/cachy.txt;
+        source = builtins.toString ./config/fastfetch/arch.txt;
         padding = {
           top = 2;
           right = 6;
@@ -35,6 +35,11 @@
         {
           type = "uptime";
           key = "  uptime ";
+          keyColor = "33";
+        }
+        {
+          type = "wm";
+          key = "  wm     ";
           keyColor = "33";
         }
         {

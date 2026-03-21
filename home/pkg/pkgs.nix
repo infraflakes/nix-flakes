@@ -14,5 +14,6 @@
     ./cli/tmux.nix
     ./cli/vcs.nix
     # ./cli/ai.nix
+    ./modify-desktop-entry.nix
   ];
 }
