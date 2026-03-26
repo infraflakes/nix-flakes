@@ -26,42 +26,41 @@ srwm.key.bind("Mod4+Alt", "Up", function()
 end)
 
 --------------------------------------------------------------------------------
--- Tag Management
---------------------------------------------------------------------------------
-
+-- Workspace Management
+-- change workspaces
 srwm.key.bind("Mod4+Alt", "Left", function()
-	srwm.tag.shift_view(-1)
+	srwm.workspace.shift_view(-1)
 end)
 srwm.key.bind("Mod4+Alt", "Right", function()
-	srwm.tag.shift_view(1)
+	srwm.workspace.shift_view(1)
 end)
 srwm.key.bind("Mod4+Ctrl", "Left", function()
-	srwm.tag.view_prev()
+	srwm.workspace.view_prev()
 end)
 srwm.key.bind("Mod4+Ctrl", "Right", function()
-	srwm.tag.view_next()
+	srwm.workspace.view_next()
 end)
 srwm.key.bind("Mod4+Shift", "comma", function()
-	srwm.tag.move_to_monitor(-1)
+	srwm.workspace.move_to_monitor(-1)
 end)
 srwm.key.bind("Mod4+Shift", "period", function()
-	srwm.tag.move_to_monitor(1)
+	srwm.workspace.move_to_monitor(1)
 end)
 
--- View previous tag
+-- View previous workspace
 srwm.key.bind("Mod4", "Tab", function()
-	srwm.tag.view(0)
+	srwm.workspace.view(0)
 end)
 
 -- Workspaces 1-9
 for i = 1, 9 do
 	local key = tostring(i)
 	srwm.key.bind("Mod4", key, function()
-		srwm.tag.view(i)
-	end) -- SUPER + <numbers> to change tags
+		srwm.workspace.view(i)
+	end) -- SUPER + <numbers> to change workspaces
 	srwm.key.bind("Mod4+Shift", key, function()
-		srwm.tag.move_window_to(i)
-	end) -- SUPER + SHIFT + <numbers> to move windows to specified tags
+		srwm.workspace.move_window_to(i)
+	end) -- SUPER + SHIFT + <numbers> to move windows to specified workspaces
 end
 
 --------------------------------------------------------------------------------
@@ -70,18 +69,15 @@ end
 
 -- Volume Control
 srwm.key.bind("", "XF86AudioRaiseVolume", function()
-	-- Increments volume by 2%
-	srwm.spawn("pactl set-sink-volume @DEFAULT_SINK@ +2%")
+	srwm.spawn("wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%+")
 end)
 
 srwm.key.bind("", "XF86AudioLowerVolume", function()
-	-- Decrements volume by 2%
-	srwm.spawn("pactl set-sink-volume @DEFAULT_SINK@ -2%")
+	srwm.spawn("wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-")
 end)
 
 srwm.key.bind("", "XF86AudioMute", function()
-	-- Toggles mute status
-	srwm.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle")
+	srwm.spawn("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle")
 end)
 
 -- Brightness Control
@@ -100,6 +96,11 @@ end)
 
 srwm.key.bind("Mod4", "BackSpace", function()
 	srwm.quit()
+end)
+
+srwm.key.bind("Mod4", "l", function()
+	srwm.spawn("slock")
+	srwm.spawn("systemctl suspend")
 end)
 
 srwm.key.bind("Mod4", "Return", function()
