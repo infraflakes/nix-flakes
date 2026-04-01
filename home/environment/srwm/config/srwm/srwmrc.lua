@@ -16,9 +16,9 @@ include("customs")
 -- srwm.spawn_once("nm-applet &")
 
 srwm.workspaces.set_label("1,2,3,4,5,6") -- set workspaces name
-
+srwm.canvas.edge_autopan(true) -- move the canvas when hovering cursor over border
 -- Appearance
-srwm.cfg.borderpx(3)
+srwm.cfg.borderpx(0)
 
 -- Bar dimensions
 srwm.bar.fonts("Terminess Nerd Font:size=16")

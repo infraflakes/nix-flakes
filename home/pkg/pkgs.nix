@@ -8,6 +8,7 @@
     # ./cli/ai.nix
     ./cli/editor.nix
     ./cli/alacritty.nix
+    ./cli/ghostty.nix
     ./cli/file-manager.nix
     ./cli/fastfetch.nix
     ./cli/fish.nix
