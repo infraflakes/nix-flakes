@@ -13,7 +13,8 @@
     # User environment
     ./environment/user.nix
     ./environment/profiles.nix
-    ./environment/xserver.nix
+    ./environment/srwc.nix
+    # ./environment/xserver.nix
     #./environment/gnome.nix
     # ./environment/cosmic.nix
 

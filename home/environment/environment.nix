@@ -4,9 +4,8 @@
   ...
 }: {
   imports = [
-    ./srwm/srwm.nix
-    ./srwm/rofi.nix
-    ./srwm/clipboard.nix
+    ./wm/dms.nix
+    ./wm/srwc.nix
 
     ./ui/fonts.nix
     ./ui/theme.nix

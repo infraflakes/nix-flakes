@@ -14,7 +14,14 @@
       url = "github:infraflakes/srn-cd";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    srwm.url = "github:infraflakes/srwm";
+    dms = {
+      url = "github:AvengeMedia/DankMaterialShell/stable";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    srwc = {
+      url = "github:infraflakes/srwc";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   outputs = {
     self,
@@ -22,6 +29,8 @@
     home-manager,
     srn-coreutils,
     srn-cd,
+    dms,
+    srwc,
     ...
   } @ inputs: let
     system = "x86_64-linux";
@@ -34,7 +43,6 @@
       specialArgs = {inherit inputs username system;};
       modules = [
         ./syswide/host.nix
-        # inputs.xlibre-overlay.nixosModules.overlay-xlibre-xserver
       ];
     };
     # Home Manager

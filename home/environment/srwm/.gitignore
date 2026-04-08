@@ -1,8 +1,0 @@
-config/swm/dwm 
-config/swm/config.h 
-config/swm/*.o
-config/swm/*.orig
-config/swm/*.rej
-.ccls-cache/
-setup*
-up.sh
