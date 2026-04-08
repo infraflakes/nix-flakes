@@ -38,6 +38,11 @@
           keyColor = "33";
         }
         {
+          type = "wm";
+          key = "  wm     ";
+          keyColor = "33";
+        }
+        {
           type = "memory";
           key = "  memory ";
           keyColor = "33";

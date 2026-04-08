@@ -36,7 +36,7 @@
   };
 
   security = {
-    sudo.enable = false;
+    # sudo.enable = false;
     doas = {
       enable = true;
       extraRules = [

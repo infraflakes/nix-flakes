@@ -5,7 +5,9 @@
   inputs,
   ...
 }: {
-  services.displayManager.sessionPackages = [srwc];
+  services.displayManager.sessionPackages = [
+    inputs.srwc.packages.${pkgs.stdenv.hostPlatform.system}.default
+  ];
   environment.systemPackages = [
     inputs.srwc.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];

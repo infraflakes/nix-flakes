@@ -2,51 +2,17 @@
   config,
   pkgs,
   lib,
-  inputs,
   ...
 }: {
-  # programs.hyprland.enable = true;
-  services.displayManager = {
-    # gdm.enable = true;
-    # ly.enable = true;
-    sessionPackages = [
-      pkgs.niri
-      # inputs.mangowc.packages.${pkgs.stdenv.hostPlatform.system}.mango
-    ];
-  };
+  services.displayManager.ly.enable = true;
   xdg.portal = {
     enable = true;
-    wlr = {
-      enable = true;
-      settings = {
-        screencast = {
-          chooser_type = "none";
-          outputname = "eDP-1";
-        };
-      };
-    };
     extraPortals = with pkgs; [
-      # xdg-desktop-portal-hyprland
-      # xdg-desktop-portal-gtk
-      # xdg-desktop-portal-wlr
-      # xdg-desktop-portal-gnome
+      xdg-desktop-portal-gtk
+      xdg-desktop-portal-gnome
     ];
     config = {
-      gnome = {
-        default = ["gnome"];
-      };
-      hyprland = {
-        default = ["hyprland" "gtk"];
-      };
-      mangowc = {
-        default = ["wlr"];
-        "org.freedesktop.impl.portal.ScreenCast" = ["wlr"];
-        "org.freedesktop.impl.portal.Screenshot" = ["wlr"];
-        "org.freedesktop.impl.portal.FileChooser" = ["gtk"];
-        "org.freedesktop.portal.Settings" = ["gtk"];
-      };
-
-      niri = {
+      srwc = {
         default = [
           "gtk"
           "gnome"

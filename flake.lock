@@ -175,11 +175,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1775647487,
-        "narHash": "sha256-nlLH/hEft68cypePpivCkONgMa6pJgxJnS97n5FBHdM=",
+        "lastModified": 1775660949,
+        "narHash": "sha256-O7HcKKqbrK9Ky1eA/FLQ8/No7ec6wuzDNX6lZc8p4KE=",
         "owner": "infraflakes",
         "repo": "srwc",
-        "rev": "afe5be4f70f6d29a4f518075651cabe7a72a5945",
+        "rev": "61618ec016e7709b08b1890fb81a61adf1061e82",
         "type": "github"
       },
       "original": {

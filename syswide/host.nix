@@ -15,7 +15,7 @@
     ./environment/profiles.nix
     ./environment/srwc.nix
     # ./environment/xserver.nix
-    #./environment/gnome.nix
+    # ./environment/gnome.nix
     # ./environment/cosmic.nix
 
     # Programs that needs privileges
