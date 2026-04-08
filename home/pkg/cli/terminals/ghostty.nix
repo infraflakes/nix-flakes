@@ -9,10 +9,10 @@
     settings = {
       font-family = "JetBrains Mono Nerd Font";
       font-size = 13;
-      theme = "Vague";
+      theme = "Catppuccin Frappe";
       confirm-close-surface = false;
       command = "${pkgs.fish}/bin/fish --login --interactive";
-      gtk-titlebar = false;
+      # gtk-titlebar = false;
       # command = "${pkgs.zsh}/bin/zsh -l -i";
       keybind = [
         "clear"
@@ -25,7 +25,7 @@
         "ctrl+v=paste_from_clipboard"
       ];
 
-      #background = "1b1e25";
+      # background = "1b1e25";
     };
     enableFishIntegration = true;
   };
