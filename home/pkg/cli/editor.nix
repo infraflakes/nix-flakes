@@ -16,6 +16,14 @@
       antigravity
       clang-tools
       tree-sitter
+
+      # Servers
+      nil
+      gopls
+      rust-analyzer
+      zls
+      svelte-language-server
+      typescript-language-server
     ];
     sessionVariables = {
       EDITOR = "nvim";

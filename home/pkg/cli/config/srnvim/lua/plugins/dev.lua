@@ -1,11 +1,17 @@
+vim.opt.updatetime = 100
 vim.diagnostic.config {
   virtual_text = {
-    prefix = "●", -- Could be '', '●', '◆'
-    spacing = 2,
+    prefix = "", -- Could be '', '●', '◆'
   },
   underline = true,
   update_in_insert = false,
   severity_sort = true,
+  float = {
+    border = "rounded",
+    source = "always",
+    header = "",
+    prefix = "",
+  },
   signs = {
     text = {
       [vim.diagnostic.severity.ERROR] = " ",
@@ -15,6 +21,12 @@ vim.diagnostic.config {
     },
   },
 }
+-- Floating error message
+vim.api.nvim_create_autocmd("CursorHold", {
+  callback = function()
+    vim.diagnostic.open_float(nil, { focusable = false })
+  end,
+})
 return {
 
   {
@@ -80,6 +92,23 @@ return {
   },
 
   {
+    "neovim/nvim-lspconfig",
+    event = { "BufReadPre", "BufNewFile" },
+    config = function()
+      local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
+      vim.lsp.config("*", {
+        capabilities = capabilities,
+      })
+
+      local servers = { "gopls", "rust_analyzer", "nil_ls", "ts_ls", "zls", "svelte" }
+      for _, server in ipairs(servers) do
+        vim.lsp.enable(server)
+      end
+    end,
+  },
+
+  {
     "hrsh7th/nvim-cmp",
     event = "InsertEnter", -- Lazy load on insert
     dependencies = {
@@ -102,6 +131,7 @@ return {
         },
         sources = cmp.config.sources {
           { name = "nvim_lsp", priority = 1000 },
+          { name = "path" },
           -- Only load buffer if LSP isn't providing enough info
           { name = "buffer", keyword_length = 3 },
         },
