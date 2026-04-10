@@ -97,7 +97,7 @@
 
     [keybindings]
     "mod+shift+r" = "reload-config"
-    "mod+return" = "exec alacritty"
+    "mod+return" = "exec ghostty"
     "mod+space" = "exec dms ipc call spotlight toggle"
     "mod+v" = "exec dms ipc call clipboard toggle"
     "mod+escape" = "quit"

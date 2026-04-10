@@ -8,11 +8,6 @@
   tokyonight = "Tokyonight-Dark";
   tokyonight-pkg = pkgs.tokyonight-gtk-theme;
 
-  catppuccin = "catppuccin-frappe-blue-standard";
-  catppuccin-pkg = pkgs.catppuccin-gtk;
-
-  whitesur = "WhiteSur-Dark";
-  whitesur-pkg = pkgs.whitesur-gtk-theme;
   ####################################################################
   # Icon Themes
   papirus = "Papirus-Dark";
@@ -26,16 +21,14 @@
   bibata-classic = "Bibata-Modern-Classic";
   bibata-pkg = pkgs.bibata-cursors;
 
-  whitesur-cursor = "WhiteSur Cursors";
-  whitesur-cursor-pkg = pkgs.whitesur-cursors;
   ####################################################################
   # Icon
   iconname = whitesur-icon;
   pkgicon = whitesur-icon-pkg;
 
   # GTK
-  themename = whitesur;
-  pkgtheme = whitesur-pkg;
+  themename = tokyonight;
+  pkgtheme = tokyonight-pkg;
 
   # Cursor
   cursorname = bibata-ice;
@@ -45,6 +38,9 @@
   fontname = "JetBrainsMono Nerd Font 12";
 in {
   home.packages = with pkgs; [
+    pkgtheme
+    pkgcursor
+    adwaita-icon-theme
     pkgicon
   ];
   home.sessionVariables = {

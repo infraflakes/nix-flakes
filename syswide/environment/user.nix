@@ -37,4 +37,5 @@
     nameservers = ["8.8.8.8" "1.1.1.1"];
   };
   programs.dconf.enable = true;
+  services.dbus.packages = [pkgs.gsettings-desktop-schemas];
 }

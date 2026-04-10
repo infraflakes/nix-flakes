@@ -9,7 +9,7 @@
     settings = {
       font-family = "JetBrains Mono Nerd Font";
       font-size = 13;
-      theme = "Catppuccin Frappe";
+      theme = "TokyoNight Night";
       confirm-close-surface = false;
       command = "${pkgs.fish}/bin/fish --login --interactive";
       # gtk-titlebar = false;

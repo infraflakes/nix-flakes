@@ -12,7 +12,10 @@
       xdg-desktop-portal-gnome
     ];
     config = {
-      common.default = ["gtk"];
+      common = {
+        default = ["gtk"];
+        "org.freedesktop.impl.portal.OpenURI" = ["gtk"];
+      };
       srwc = {
         default = [
           "gtk"

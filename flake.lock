@@ -1,5 +1,26 @@
 {
   "nodes": {
+    "dagger": {
+      "inputs": {
+        "nixpkgs": [
+          "srwc",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1775709937,
+        "narHash": "sha256-yjDxqCHT5hH0BJONptgiwCY+CMC8VjqAJssbkUGwXQk=",
+        "owner": "dagger",
+        "repo": "nix",
+        "rev": "8c3c36c374daf93a3195f1890dbb0effcc3c0e2a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "dagger",
+        "repo": "nix",
+        "type": "github"
+      }
+    },
     "dms": {
       "inputs": {
         "nixpkgs": [
@@ -170,16 +191,17 @@
     },
     "srwc": {
       "inputs": {
+        "dagger": "dagger",
         "nixpkgs": [
           "nixpkgs"
         ]
       },
       "locked": {
-        "lastModified": 1775709277,
-        "narHash": "sha256-Twk0PovSbrtzNAMeM2vMyuH4Fr87SHRu9cZ6ii6rcJw=",
+        "lastModified": 1775744982,
+        "narHash": "sha256-TOtEGwf73XYsUOgHceUbMZeYuROUxY/7ZpI7CGF+8Lo=",
         "owner": "infraflakes",
         "repo": "srwc",
-        "rev": "fecf297aa2fb7048a355f81265596ffedb659102",
+        "rev": "c9910fdd2baa349157002cbe3eb76f6a36370c84",
         "type": "github"
       },
       "original": {
