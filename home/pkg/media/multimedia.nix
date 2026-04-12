@@ -13,6 +13,7 @@
     mpc
     mpd
     mpd-mpris
+    ytmdesktop
   ];
   home.file.".config/rmpc".source = ./config/rmpc;
   home.file.".config/mpd/mpd.conf".text = ''

@@ -16,20 +16,14 @@
 
     [input.keyboard]
     layout = "us"              # XKB layout (e.g., "us,ru" for multi-layout)
-    # variant = ""               # XKB variant (e.g., "dvorak", or "," for two defaults)
-    # options = ""               # XKB options (e.g., "grp:win_space_toggle" for Super+Space layout switch)
-    # model = ""                 # XKB model (e.g., "pc105")
-    # repeat_rate = 25           # keys/sec
-    # repeat_delay = 200         # ms before repeat starts
-    # layout_independent = true  # match bindings by physical key position across layouts
+    repeat_rate = 50           # keys/sec
+    repeat_delay = 150         # ms before repeat starts
 
     [input.trackpad]
     tap_to_click = true         # enable tap-to-click
     natural_scroll = true       # reverse scroll direction (content follows fingers)
-    # tap_and_drag = true         # double-tap-hold to drag
     # accel_speed = 0.0           # pointer acceleration (-1.0 to 1.0)
     accel_profile = "adaptive"  # "flat" or "adaptive"
-    # click_method = "none"       # none = device default; clickfinger = finger count (1=left, 2=right, 3=middle); button_areas = position on trackpad
 
     [input.mouse]
     # accel_speed = 0.0           # pointer acceleration (-1.0 to 1.0)
