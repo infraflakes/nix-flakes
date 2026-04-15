@@ -101,7 +101,7 @@ return {
         capabilities = capabilities,
       })
 
-      local servers = { "gopls", "rust_analyzer", "nil_ls", "ts_ls", "zls", "svelte" }
+      local servers = { "rust_analyzer", "nil_ls", "ts_ls", "zls", "svelte" }
       for _, server in ipairs(servers) do
         vim.lsp.enable(server)
       end

@@ -1,9 +1,4 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   services.upower.enable = true;
   environment.systemPackages = with pkgs; [pciutils];
   services.supergfxd.enable = true;

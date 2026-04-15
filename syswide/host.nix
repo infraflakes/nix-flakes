@@ -17,7 +17,7 @@
     # ./runtime/otd.nix
     ./runtime/ppd.nix
     ./runtime/mount.nix
-    # ./runtime/virt/virt-qemu.nix
+    ./runtime/virt/gnome-boxes.nix
     # ./runtime/gaming.nix
     ./runtime/containerization/podman.nix
     # ./runtime/containerization/packaging.nix

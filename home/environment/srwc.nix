@@ -1,7 +1,5 @@
 {...}: {
   home.file.".config/srwc/config.toml".text = ''
-    # Sloppy focus: keyboard focus follows the pointer to windows.
-    # Moving to empty canvas keeps focus; click empty canvas to unfocus.
     focus_follows_mouse = true
 
     autostart = [
@@ -33,15 +31,14 @@
     [cursor]
     theme = "Bibata-Modern-Ice" # sets XCURSOR_THEME
     size = 24                     # sets XCURSOR_SIZE
-    # inactive_opacity = 0.5      # cursor opacity on non-active outputs (0.0–1.0)
 
     [navigation]
     # trackpad_speed = 1.5        # trackpad (scroll/gestures) pan multiplier
     # mouse_speed = 1.0           # mouse (drag) pan multiplier (1.0 = direct)
     # friction = 0.94             # momentum decay (0.90=snappy, 0.98=floaty)
     # animation_speed = 0.3       # camera lerp factor (higher = faster)
-    # nudge_step = 20             # px per nudge-window action (mod-shift-arrow by default)
-    # pan_step = 100.0            # px per pan-viewport action (mod-ctrl-arrow by default)
+    nudge_step = 70             # px per nudge-window action (mod-shift-arrow by default)
+    pan_step = 150            # px per pan-viewport action (mod-ctrl-arrow by default)
 
     [navigation.edge_pan]
     # zone = 100.0                # activation zone width (px from viewport edge)
@@ -72,8 +69,8 @@
 
     [background]
     # Examples:
-    # tile_path = "~/.config/srwc/tile.png"     # tiled image (mutually exclusive with shader)
-    shader_path = "/etc/srwc/wallpapers/dark_sea.glsl"
+    shader_path = "/etc/srwc/wallpapers/dot_grid.glsl"
+    # wallpaper_path = "~/.config/wallpapers/Nene.jpg"
 
     [keybindings]
     "mod+shift+r" = "reload-config"
@@ -103,11 +100,7 @@
     "mod+minus" = "zoom-out"
     "mod+r" = "zoom-reset"
     "mod+w" = "zoom-to-fit"
-    # "mod+alt+up" = "send-to-output up"        # move window to output above
-    # "mod+alt+down" = "send-to-output down"
-    # "mod+alt+left" = "send-to-output left"
-    # "mod+alt+right" = "send-to-output right"
-    # "mod+l" = "spawn swaylock -f -c 000000 -kl"
+    "mod+l" = "spawn dms ipc call lock lock"
     "mod+backspace" = "quit"
     "XF86AudioRaiseVolume" = "spawn wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%+"
     "XF86AudioLowerVolume" = "spawn wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-"

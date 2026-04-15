@@ -14,7 +14,7 @@
 
       # Servers
       nil
-      gopls
+      # gopls
       rust-analyzer
       zls
       svelte-language-server
