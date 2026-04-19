@@ -12,6 +12,7 @@
     mpc
     mpd
     mpd-mpris
+    pear-desktop
   ];
   home.file.".config/rmpc".source = ./config/rmpc;
   home.file.".config/mpd/mpd.conf".text = ''

@@ -130,12 +130,12 @@
       "inputs": {
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
-        "srn-cd": "srn-cd",
+        "scd": "scd",
         "srn-coreutils": "srn-coreutils",
         "srwc": "srwc"
       }
     },
-    "srn-cd": {
+    "scd": {
       "inputs": {
         "flake-utils": "flake-utils",
         "nixpkgs": [
@@ -143,16 +143,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1771946214,
-        "narHash": "sha256-VPqSHK21HAfNvPX1qGbQA4fnPzvgkfhk/WuS4o8ilA0=",
+        "lastModified": 1776589213,
+        "narHash": "sha256-P11EGjeD/0pgkLTekay/GyBShR80MXaUxP85rdI+7vw=",
         "owner": "infraflakes",
-        "repo": "srn-cd",
-        "rev": "3ac189d4595571c7504ceac8bf7e5249acaa64a7",
+        "repo": "scd",
+        "rev": "74edde813826c2c19ccaec60eee50a826e6d77d4",
         "type": "github"
       },
       "original": {
         "owner": "infraflakes",
-        "repo": "srn-cd",
+        "repo": "scd",
         "type": "github"
       }
     },

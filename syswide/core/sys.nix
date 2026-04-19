@@ -33,17 +33,19 @@
     interval = "weekly";
   };
   #ZRAM Swap
-  zramSwap.enable = true;
   swapDevices = [
     {
       device = "/swapfile";
-      size = 24 * 1024;
-      priority = 1;
+      size = 16384;
     }
   ];
-  boot.kernel.sysctl = {
-    "vm.swappiness" = 10;
-  };
+  boot.kernelParams = [
+    "zswap.enabled=1"
+    "zswap.compressor=zstd" # Best ratio for CPU
+    "zswap.max_pool_percent=20" # 20% of 24GB is ~4.8GB
+    "zswap.zpool=zsmalloc" # More efficient memory allocator
+  ];
+  boot.kernel.sysctl."vm.swappiness" = 60;
 
   #Bluetooth
   hardware.bluetooth.enable = true;
