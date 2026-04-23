@@ -15,13 +15,13 @@
     # kernelParams = ["acpi_backlight=native"];
     loader = {
       efi.canTouchEfiVariables = true;
-      grub = {
-        enable = true;
-        device = "nodev";
-        efiSupport = true;
-        # useOSProber = true;
-        #theme = grubTheme;
-      };
+      limine.enable = true;
+      # grub = {
+      #   enable = true;
+      #   device = "nodev";
+      #   efiSupport = true;
+      #   useOSProber = true;
+      # };
     };
     #blacklistedKernelModules = ["kvm" "kvm-intel" "bridge" "macvlan" "tap" "tun"];
   };
