@@ -11,6 +11,7 @@
       se = "doas -E -s nvim";
       e = "nvim";
       ls = "lsd -l";
+      nr = "nix develop -c bash";
     };
     interactiveShellInit = ''
       if test -e ~/.nix-profile/etc/profile.d/nix.fish

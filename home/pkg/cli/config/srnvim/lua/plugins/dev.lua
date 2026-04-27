@@ -59,7 +59,6 @@ return {
         "yaml",
         "make",
         "json",
-        "jsonc",
         "css",
         "nix",
       }

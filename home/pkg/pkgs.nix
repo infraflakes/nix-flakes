@@ -1,5 +1,6 @@
 {...}: {
   imports = [
+    ./modify-desktop-entry.nix
     # CLI
     # ./cli/ai.nix
     ./cli/editor.nix
@@ -11,7 +12,7 @@
     ./cli/starship.nix
     ./cli/vcs.nix
     ./cli/container.nix
-    ./modify-desktop-entry.nix
+    ./cli/sro.nix
     ./cli/zellij.nix
 
     ./media/multimedia.nix

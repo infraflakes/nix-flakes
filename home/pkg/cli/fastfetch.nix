@@ -3,7 +3,7 @@
     enable = true;
     settings = {
       logo = {
-        source = builtins.toString ./config/fastfetch/ubuntu.txt;
+        source = builtins.toString ./config/fastfetch/nix.txt;
         padding = {
           top = 2;
           right = 6;
