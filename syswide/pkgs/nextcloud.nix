@@ -13,19 +13,12 @@
     options = ["nofail"];
     depends = ["/data"]; # Ensures the parent mount is ready first
   };
-  # systemd.services.nextcloud = {
-  #   description = "Nextcloud";
-  #   after = ["network.target" "data-nextcloud.mount"];
-  #   wantedBy = ["multi-user.target"];
-  #
-  #   serviceConfig = {
-  #     Type = "simple";
-  #     User = "root";
-  #     Group = "root";
-  #     WorkingDirectory = "/data/nextcloud";
-  #     ExecStart = "${pkgs.podman}/bin/podman compose up";
-  #     ExecStop = "${pkgs.podman}/bin/podman compose down";
-  #     Restart = "always";
-  #   };
-  # };
+
+  services.cron = {
+  	enable = true;
+  	systemCronJobs = [
+    	# "*/15 * * * * root  docker exec --user www-data nextcloud-app php occ preview:pre-generate" #once every 15 min
+	"0 2 * * * root docker exec --user www-data nextcloud-app php occ preview:pre-generate" # once every day at 2 am
+  	];
+  };
 }
