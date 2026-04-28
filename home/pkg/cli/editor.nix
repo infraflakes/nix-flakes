@@ -13,11 +13,7 @@
 
       # Servers
       nil
-      # gopls
-      rust-analyzer
-      zls
-      svelte-language-server
-      typescript-language-server
+      gopls
     ];
     sessionVariables = {
       EDITOR = "nvim";
