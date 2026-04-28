@@ -4,8 +4,6 @@
     extraConfig = ''
       show_startup_tips false
     '';
-    # Zellij handles the shell integration automatically
-    enableFishIntegration = true;
     settings = {
       theme = "tokyo-night-dark";
       default_layout = "compact"; # Similar to the clean tmux look

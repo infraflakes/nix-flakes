@@ -14,9 +14,6 @@
       nr = "nix develop -c bash";
     };
     interactiveShellInit = ''
-      if test -e ~/.nix-profile/etc/profile.d/nix.fish
-          source ~/.nix-profile/etc/profile.d/nix.fish
-      end
       scd init fish | source
       fastfetch
       set username (whoami)

@@ -9,6 +9,7 @@
       alejandra
       tree-sitter
       nil
+      gcc
     ];
     sessionVariables = {
       EDITOR = "nvim";

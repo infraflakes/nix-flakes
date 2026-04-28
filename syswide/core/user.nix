@@ -3,7 +3,8 @@
   username,
   ...
 }: {
-  programs.fish.enable = true;
+  environment.systemPackages = with pkgs; [home-manager];
+   programs.fish.enable = true;
   users.users.${username} = {
     isNormalUser = true;
     shell = pkgs.fish;
