@@ -1,18 +1,21 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
     imv
-    mpv
-    ani-cli
     ffmpeg
     music-discord-rpc
     # easytag
     # nicotine-plus
-    yt-dlp
     rmpc
     mpc
     mpd
     mpd-mpris
     pear-desktop
+    showtime
+
+    # Require rusty v8
+    # ani-cli
+    # mpv
+    # yt-dlp
   ];
   home.file.".config/rmpc".source = ./config/rmpc;
   home.file.".config/mpd/mpd.conf".text = ''
