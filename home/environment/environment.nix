@@ -1,7 +1,7 @@
 {...}: {
   imports = [
     # ./srwc.nix
-    ./niri.nix
+    # ./niri.nix
 
     ./ui/fonts.nix
     ./ui/theme.nix

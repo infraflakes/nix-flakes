@@ -13,6 +13,7 @@
     bat
     jq
     brightnessctl
+    pciutils
   ];
   # SSH
   services.openssh = {

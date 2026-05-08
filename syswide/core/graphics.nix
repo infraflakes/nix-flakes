@@ -3,8 +3,11 @@
   pkgs,
   ...
 }: {
+  boot.kernelParams = [
+    "acpi_backlight=native"
+    # "nvidia.NVreg_PreserveVideoMemoryAllocations=0"
+  ];
   services.xserver.videoDrivers = ["nvidia"];
-  boot.kernelParams = ["nvidia.NVreg_PreserveVideoMemoryAllocations=0"];
   hardware = {
     graphics = {
       enable = true;
@@ -19,7 +22,7 @@
       powerManagement.enable = false;
       powerManagement.finegrained = false;
       open = true;
-      modesetting.enable = true;
+      # modesetting.enable = true;
     };
   };
 }
