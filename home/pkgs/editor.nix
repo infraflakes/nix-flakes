@@ -7,9 +7,9 @@
       gnumake
       stylua
       alejandra
-      antigravity
       clang-tools
       tree-sitter
+      opencode
 
       # Servers
       nil

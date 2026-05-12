@@ -33,8 +33,8 @@
       "*" = {
         addKeysToAgent = "yes";
       };
-      "gitlab.com" = {
-        hostname = "gitlab.com";
+      "nix-server" = {
+        hostname = "nix-server";
         user = "git";
         identityFile = "~/.ssh/id_ed25519";
       };
