@@ -1,0 +1,50 @@
+#!/usr/bin/env bash
+
+# Configuration
+DIR="$HOME/.config/rofi"
+THEME="power"
+THEME_PATH="${DIR}/${THEME}.rasi"
+
+# Fetch system info using modern bash built-ins where possible
+HOST="${HOSTNAME:-$(hostname)}"
+
+# Get current power profile from power-profiles-daemon
+# 'powerprofilesctl get' returns just the profile name (e.g., balanced, power-saver)
+CURRENT_PROFILE=$(powerprofilesctl get 2>/dev/null || echo "Unknown")
+
+# Options (Using standard power-profiles-daemon naming conventions)
+P_SAVER="󰒲 Power Saver"
+P_BALANCED=" Balanced"
+P_PERF=" Performance"
+
+# Rofi Command Function
+rofi_cmd() {
+    rofi -dmenu \
+        -p "$HOST" \
+        -mesg "Profile: ${CURRENT_PROFILE^}" \
+        -theme "$THEME_PATH"
+}
+
+# Pass variables to rofi dmenu
+run_rofi() {
+    printf "%s\n%s\n%s\n" "$P_SAVER" "$P_BALANCED" "$P_PERF" | rofi_cmd
+}
+
+# Actions
+CHOSEN="$(run_rofi)"
+
+case "$CHOSEN" in
+    "$P_SAVER")
+        powerprofilesctl set power-saver
+        ;;
+    "$P_BALANCED")
+        powerprofilesctl set balanced
+        ;;
+    "$P_PERF")
+        powerprofilesctl set performance
+        ;;
+    *)
+        # Exit gracefully if user presses Esc or closes Rofi
+        exit 0
+        ;;
+esac

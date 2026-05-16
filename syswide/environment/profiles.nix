@@ -4,7 +4,7 @@
   ...
 }: {
   services.displayManager = {
-    ly.enable = true;
+    # ly.enable = true;
     # gdm.enable = true;
   };
   xdg.portal = {

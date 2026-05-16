@@ -5,6 +5,7 @@
     brightnessctl
     rofi
     libnotify
+    jq
   ];
 
   home.sessionVariables = {
@@ -23,102 +24,66 @@
       export QT_WAYLAND_DISABLE_WINDOWDECORATION="1"
     '';
     extraConfig = ''
-      workspace_layout tabbed
-      title_align center
+      # title_align center
+      # for_window [title=".*"] move position center
+      # Use Super (Mod4) as the modifier for moving and resizing windows
+      floating_modifier Mod4 normal
+      client.focused #25292E #25292E #C9D1C9 #39C5CF #25292E
+      client.focused_inactive #161B22 #161B22 #C9D1C9 #39C5CF #FFFFFF00
+      client.unfocused #161B22 #161B22 #C9D1C9 #39C5CF #FFFFFF00
+      client.urgent #F85149 #0D1115 #C9D1C9 #EBEBF5 #F85149
+      client.placeholder      #000000 #0C0C0C $foreground #000000   #0C0C0C
+      titlebar_padding 10 8
+      for_window [app_id="firefox"] border pixel 0
+      for_window [app_id="chromium"] border pixel 0
     '';
     config = {
-      terminal = "${pkgs.ghostty}/bin/ghostty";
       output = {
         "*" = {
           # scale = "1.25";
-          bg = "${../ui/config/wallpapers/nixgirl.png} fill";
+          bg = "${../ui/config/wallpapers/wave.png} fill";
         };
       };
       input = {
+        "*" = {
+          repeat_delay = "150";
+          repeat_rate = "50";
+        };
         "type:touchpad" = {
           tap = "enabled";
           natural_scroll = "enabled";
         };
       };
       bars = [];
+      window = {
+        titlebar = true;
+        border = 0;
+        hideEdgeBorders = "smart";
+      };
+      floating = {
+        border = 0;
+        titlebar = false;
+      };
+
+      gaps = {
+        inner = 12;
+        outer = 12;
+      };
+
       fonts = {
         names = ["JetBrainsMono Nerd Font"];
         style = "SemiBold";
         size = 12.0;
       };
-      colors = {
-        # The active tab/title bar window
-        focused = {
-          border = "#313244"; # Subtle slate border
-          background = "#313244"; # Matte dark gray title background
-          text = "#ffffff"; # Crisp, pure white text for readability!
-          indicator = "#a6adc8";
-          childBorder = "#313244";
-        };
-        # Inactive background tabs
-        unfocused = {
-          border = "#1e1e2e";
-          background = "#181825"; # Deep obsidian gray for background tabs
-          text = "#6c7086"; # Muted ash gray text so it doesn't distract
-          indicator = "#181825";
-          childBorder = "#181825";
-        };
-      };
-
-      # Standard clean override mapping
-      keybindings = {
-        "XF86MonBrightnessUp" = "exec ${./scripts/bright} up";
-        "XF86MonBrightnessDown" = "exec ${./scripts/bright} down";
-
-        "XF86AudioRaiseVolume" = "exec ${./scripts/volume} up";
-        "XF86AudioLowerVolume" = "exec ${./scripts/volume} down";
-        "XF86AudioMute" = "exec ${./scripts/volume} mute";
-
-        "XF86AudioMicMute" = "exec wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle";
-
-        "Mod4+Return" = "exec ${pkgs.ghostty}/bin/ghostty";
-        "Mod4+Space" = "exec ${pkgs.rofi}/bin/rofi -show drun";
-        "Mod4+q" = "kill";
-        "Mod4+Backspace" = "exec ${pkgs.sway}/bin/swaynag -t warning -m 'Exit Sway?' -B 'Yes' 'swaymsg exit'";
-        "Mod4+f" = "fullscreen enable";
-        "Mod4+l" = "exec ${pkgs.swaylock}/bin/swaylock";
-        "Mod4+shift+s" = "exec ${./scripts/scrshot} --swappy";
-        "Mod4+alt+s" = "exec ${./scripts/scrshot} --now";
-        "Mod4+shift+a" = "exec ${./scripts/scrshot} --window";
-        "Mod4+v" = "exec ${./scripts/clip}";
-        "Mod4+shift+r" = "exec ${./scripts/record}";
-
-        "Mod4+Left" = "focus left";
-        "Mod4+Right" = "focus right";
-
-        "Mod4+1" = "workspace number 1";
-        "Mod4+2" = "workspace number 2";
-        "Mod4+3" = "workspace number 3";
-        "Mod4+4" = "workspace number 4";
-        "Mod4+5" = "workspace number 5";
-        "Mod4+6" = "workspace number 6";
-        "Mod4+7" = "workspace number 7";
-        "Mod4+8" = "workspace number 8";
-
-        "Mod4+Shift+1" = "move container to workspace number 1";
-        "Mod4+Shift+2" = "move container to workspace number 2";
-        "Mod4+Shift+3" = "move container to workspace number 3";
-        "Mod4+Shift+4" = "move container to workspace number 4";
-        "Mod4+Shift+5" = "move container to workspace number 5";
-        "Mod4+Shift+6" = "move container to workspace number 6";
-        "Mod4+Shift+7" = "move container to workspace number 7";
-        "Mod4+Shift+8" = "move container to workspace number 8";
-      };
-
       startup = [
         # Launch a status bar (like Waybar) on startup and reload
         {
           command = "${pkgs.waybar}/bin/waybar";
-          always = true;
+          always = false;
         }
         {
           command = "${pkgs.mako}/bin/mako";
-          always = true;
+          always = false;
         }
         {
           command = "${pkgs.fcitx5}/bin/fcitx5";
@@ -137,20 +102,53 @@
         }
       ];
 
-      window = {
-        titlebar = true;
-        border = 0;
-        hideEdgeBorders = "smart"; # Cleans up edges if a window takes up the full screen
-      };
-      floating = {
-        border = 0;
-        titlebar = false;
-      };
+      # Standard clean override mapping
+      keybindings = {
+        "XF86MonBrightnessUp" = "exec ${./scripts/bright} up";
+        "XF86MonBrightnessDown" = "exec ${./scripts/bright} down";
 
-      gaps = {
-        inner = 8; # Space between windows
-        outer = 4; # Space between windows and screen edges
-        smartGaps = true; # Collapse gaps automatically if only one window is open
+        "XF86AudioRaiseVolume" = "exec ${./scripts/volume} up";
+        "XF86AudioLowerVolume" = "exec ${./scripts/volume} down";
+        "XF86AudioMute" = "exec ${./scripts/volume} mute";
+
+        "XF86AudioMicMute" = "exec wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle";
+
+        "Mod4+Return" = "exec ${pkgs.ghostty}/bin/ghostty";
+        "Mod4+Space" = "exec ${pkgs.rofi}/bin/rofi -show drun";
+        "Mod4+q" = "kill";
+        "Mod4+w" = "floating toggle";
+        "Mod4+Backspace" = "exec ${pkgs.sway}/bin/swaynag -t warning -m 'Exit Sway?' -B 'Yes' 'swaymsg exit'";
+        "Mod4+f" = "fullscreen";
+        "Mod4+l" = "exec ${./scripts/powermenu}";
+        "Mod4+p" = "exec ${./scripts/power}";
+        "Mod4+shift+s" = "exec ${./scripts/scrshot} --swappy";
+        "Mod4+alt+s" = "exec ${./scripts/scrshot} --now";
+        "Mod4+shift+a" = "exec ${./scripts/scrshot} --window";
+        "Mod4+v" = "exec ${./scripts/clip}";
+        "Mod4+shift+r" = "exec ${./scripts/record}";
+
+        "Mod4+Right" = "workspace next";
+        "Mod4+Left" = "workspace prev";
+        "Mod4+Up" = "focus right";
+        "Mod4+Down" = "focus left";
+
+        "Mod4+1" = "workspace number 1";
+        "Mod4+2" = "workspace number 2";
+        "Mod4+3" = "workspace number 3";
+        "Mod4+4" = "workspace number 4";
+        "Mod4+5" = "workspace number 5";
+        "Mod4+6" = "workspace number 6";
+        "Mod4+7" = "workspace number 7";
+        "Mod4+8" = "workspace number 8";
+
+        "Mod4+Shift+1" = "move container to workspace number 1";
+        "Mod4+Shift+2" = "move container to workspace number 2";
+        "Mod4+Shift+3" = "move container to workspace number 3";
+        "Mod4+Shift+4" = "move container to workspace number 4";
+        "Mod4+Shift+5" = "move container to workspace number 5";
+        "Mod4+Shift+6" = "move container to workspace number 6";
+        "Mod4+Shift+7" = "move container to workspace number 7";
+        "Mod4+Shift+8" = "move container to workspace number 8";
       };
     };
   };

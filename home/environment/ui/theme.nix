@@ -1,8 +1,16 @@
 {pkgs, ...}: {
+  home.pointerCursor = {
+    name = "Bibata-Modern-Ice";
+    size = 24;
+    package = pkgs.bibata-cursors;
+    gtk.enable = true;
+    x11.enable = true;
+  };
   gtk = {
     enable = true;
     cursorTheme = {
       package = pkgs.bibata-cursors;
+      size = 24;
       name = "Bibata-Modern-Classic";
     };
     theme = {

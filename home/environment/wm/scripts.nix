@@ -7,6 +7,7 @@
     brightnessctl
     wl-clipboard
     wf-recorder
+    cava
   ];
   services.cliphist = {
     enable = true;
