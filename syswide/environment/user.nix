@@ -42,4 +42,5 @@
   services.tailscale.enable = true;
   programs.dconf.enable = true;
   services.dbus.packages = [pkgs.gsettings-desktop-schemas];
+  security.pam.services.swaylock = {};
 }

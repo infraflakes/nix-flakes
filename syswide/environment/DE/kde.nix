@@ -2,7 +2,7 @@
   services.desktopManager.plasma6.enable = true;
   services.displayManager = {
     # Enable the new Plasma Login Manager
-    plasma-login-manager.enable = true;
+    plasma-login-manager.enable = false;
     # Disable SDDM
     sddm.enable = false;
   };

@@ -7,7 +7,7 @@
     ./cli/file-manager.nix
     ./cli/fastfetch.nix
     ./cli/fish.nix
-    ./cli/starship.nix
+    # ./cli/starship.nix
     ./cli/zellij.nix
     ./cli/sro.nix
     ./cli/vcs.nix

@@ -3,18 +3,15 @@
     # System core
     /etc/nixos/hardware-configuration.nix
     ./core/sys.nix
-    # ./core/graphics-prime.nix
-    ./core/graphics.nix
+    ./core/graphics-prime.nix
+    # ./core/graphics.nix
     ./core/misc.nix
 
     # User environment
     ./environment/user.nix
     ./environment/profiles.nix
-    # ./environment/dms.nix
-    # ./environment/srwc.nix
-    # ./environment/niri.nix
-    ./environment/kde.nix
-    # ./environment/gnome.nix
+    # ./environment/DE/kde.nix
+    ./environment/WM/sway.nix
 
     # Programs that needs privileges
     # ./runtime/asus.nix

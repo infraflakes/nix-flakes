@@ -1,9 +1,4 @@
-{
-  config,
-  pkgs,
-  lib,
-  ...
-}: {
+{pkgs, ...}: {
   home.packages = [
     (pkgs.qt6Packages.fcitx5-with-addons.override {
       addons = with pkgs; [

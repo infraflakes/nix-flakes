@@ -10,21 +10,21 @@
     sanctuary = $workdir;
 
     pr nix {
-      url = `git@gitlab.com:infraflakes/nix-flakes.git`;
+      url = `git@github.com:infraflakes/nix-flakes.git`;
       dir = `nix`;
       sync = `clone`;
       branch = `nixos`;
     }
 
     pr sro {
-      url = `git@gitlab.com:infraflakes/sro.git`;
+      url = `git@github.com:infraflakes/sro.git`;
       dir = `sro`;
       sync = `clone`;
       use = `.sro/main.sro`;
     }
 
     pr portfolio {
-      url = `git@gitlab.com:infraflakes/infraflakes-github-io.git`;
+      url = `git@github.com:infraflakes/infraflakes-github-io.git`;
       dir = `portfolio`;
       sync = `clone`;
       use = `.sro/main.sro`;
