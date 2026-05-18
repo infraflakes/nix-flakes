@@ -5,7 +5,6 @@
     brightnessctl
     rofi
     libnotify
-    jq
   ];
 
   home.sessionVariables = {
@@ -17,7 +16,6 @@
     wrapperFeatures.gtk = true;
     systemd.enable = true;
 
-    # lspci | grep -i vga
     extraSessionCommands = ''
       export SDL_VIDEODRIVER=wayland
       export QT_QPA_PLATFORM=wayland

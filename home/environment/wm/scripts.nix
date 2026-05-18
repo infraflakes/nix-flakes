@@ -6,6 +6,7 @@
     swappy
     brightnessctl
     wl-clipboard
+    jq
     # cava
     # pulseaudio
   ];
