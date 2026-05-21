@@ -6,6 +6,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    sro = {
+      url = "github:infraflakes/sro";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     srn-coreutils = {
       url = "github:infraflakes/srn-coreutils";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -19,6 +23,7 @@
     self,
     nixpkgs,
     home-manager,
+    sro,
     srn-coreutils,
     scd,
     ...

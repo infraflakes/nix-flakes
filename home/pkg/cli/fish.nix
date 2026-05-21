@@ -10,7 +10,6 @@
       grep = "rg";
       se = "doas -E -s nvim";
       e = "nvim";
-      ls = "lsd -l";
       nvidia-gpu = "__NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia";
     };
     interactiveShellInit = ''
@@ -21,32 +20,23 @@
     '';
     shellInit = ''
       set UID (id -u)
-      set -g fish_color_command 8ab4f8 --bold
-      set -g fish_color_param ccd0d9 --bold
-      set -g fish_color_redirection 8ab4f8 --bold
-      set -g fish_color_error cf6679 --bold
-      set -g fish_color_autosuggestion 908caa --bold
-      set -g fish_color_selection --reverse --bold
+      set -g fish_color_command normal --bold
+      set -g fish_color_param brblack
+      set -g fish_color_redirection brblue
+      set -g fish_color_error red --bold
+      set -g fish_color_autosuggestion white
+      set -g fish_color_selection --reverse
     '';
     functions = {
       fish_greeting = '''';
       fish_prompt = ''
         echo
-        set_color -o 4a4b52
-        echo -n ""
         set_color normal
-        set_color -o 8ab4f8
-        set_color -b 4a4b52
+        set_color -o brblack
         echo -n "  "
-        set_color normal
-        set_color -o 8ab4f8
-        set_color -b 4a4b52
         echo -n (prompt_pwd)
+        echo -n " ❯ "
         set_color normal
-        set_color -o 4a4b52
-        echo -n ""
-        set_color normal
-        echo -n (set_color -o 8ab4f8)" ❯ "
       '';
     };
   };

@@ -24,7 +24,7 @@
     }
 
     pr portfolio {
-      url = `git@github.com:infraflakes/infraflakes-github-io.git`;
+      url = `git@github.com:infraflakes/infraflakes.github.io.git`;
       dir = `portfolio`;
       sync = `clone`;
       use = `.sro/main.sro`;

@@ -2,13 +2,11 @@
   home.packages = with pkgs; [
     copyq
     cwm
-    feh
     xclip
-    rofi
-    flameshot
     nwg-look
+    lemonbar-xft
+    brightnessctl
   ];
-  home.file.".config/rofi".source = ./config/rofi;
   home.file.".xinitrc" = {
     executable = true;
     text = ''
@@ -24,8 +22,8 @@
       export QT_IM_MODULE=fcitx
       export SDL_IM_MODULE=fcitx
       export GLFW_IM_MODULE=fcitx
-      # unset SSH_ASKPASS
-      feh --bg-scale ${../ui/config/wallpapers/wave.png} &
+      xsetroot -solid "#FFFFEB"
+      ${./scripts/bar.sh} &
       fcitx5 &
       copyq &
       # xrandr --output DP-2 --mode 1920x1080 --rate 144.00
@@ -39,24 +37,47 @@
     unbind-mouse all
 
     fontname "JetBrainsMono Nerd Font:pixelsize=13:bold"
-    borderwidth 0
+    borderwidth 3
 
-    color activeborder   "#86afef"
-    color inactiveborder "#1e1b25"
-    color menubg         "#1e1b25"
-    color menufg         "#f8f8f2"
-    color selfont        "#86afef"
+    color activeborder   "#1e1b25"
+    # color inactiveborder "#1e1b25"
+    # color menubg         "#1e1b25"
+    # color menufg         "#f8f8f2"
+    # color selfont        "#86afef"
+    ignore lemonbar
 
     sticky yes # New windows automatically join current workspace
 
+    bind-key XF86AudioRaiseVolume "pactl set-sink-volume @DEFAULT_SINK@ +2%"
+    bind-key XF86AudioLowerVolume "pactl set-sink-volume @DEFAULT_SINK@ -2%"
+    bind-key XF86AudioMute "pactl set-sink-mute @DEFAULT_SINK@ toggle"
+    bind-key XF86MonBrightnessUp "brightnessctl set +5%"
+    bind-key XF86MonBrightnessDown "brightnessctl set 5%-"
+
     bind-key 4-Return    "ghostty"  # Direct fast path to terminal
-    bind-key 4-space     "rofi -show drun"
     bind-key 4-l     "slock"
-    bind-key M-space     menu-window # search window
-    bind-key 4-p         menu-exec     # Built-in system app path launcher
+    bind-key M-space         menu-exec     # Built-in system app path launcher
+    bind-key 4-slash menu-window
+
+    bind-key 4-space menu-cmd
+    bind-mouse 3 menu-cmd
+    command terminal   "ghostty"
+    command editor   "ghostty -e nvim"
+    command files      "ghostty -e yazi"
+    command browser    "firefox"
+    command music    "pear-desktop"
+    command vesktop    "vesktop"
+    command monitor    "ghostty -e htop"
+    command screenshot    "flameshot gui"
+    command clipboard    "copyq show"
+    command "-------------" "true"
+    command suspend    "systemctl suspend"
+    command logout     quit
+    command reboot     "reboot"
+    command shutdown   "shutdown -P now"
+
 
     bind-key 4-q         window-close
-    bind-key 4-Tab       window-cycle
     bind-key M-Tab window-cycle
 
     bind-mouse 4-1 window-move
