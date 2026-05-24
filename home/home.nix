@@ -32,8 +32,7 @@
       "$HOME/.cargo/bin"
     ];
     packages = [
-      inputs.srn-coreutils.packages.${pkgs.stdenv.hostPlatform.system}.default
-      inputs.scd.packages.${pkgs.stdenv.hostPlatform.system}.default
+      inputs.sutils.packages.${pkgs.stdenv.hostPlatform.system}.default
       pkgs.home-manager
       pkgs.bottom
       pkgs.lm_sensors

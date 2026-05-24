@@ -5,7 +5,6 @@
     shellAliases = {
       tm = "tmux new-session -A -s default";
       cd = "scd";
-      smd = "srn music download";
       cat = "bat";
       grep = "rg";
       se = "doas -E -s nvim";
@@ -13,7 +12,7 @@
       nvidia-gpu = "__NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia";
     };
     interactiveShellInit = ''
-      scd init fish | source
+      sn cd init fish | source
       fastfetch
       set username (whoami)
       echo "				Welcome back, $username!"

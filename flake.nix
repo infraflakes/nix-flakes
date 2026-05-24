@@ -10,12 +10,8 @@
       url = "github:infraflakes/sro";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    srn-coreutils = {
-      url = "github:infraflakes/srn-coreutils";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    scd = {
-      url = "github:infraflakes/scd";
+    sutils = {
+      url = "github:infraflakes/sutils";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -24,8 +20,7 @@
     nixpkgs,
     home-manager,
     sro,
-    srn-coreutils,
-    scd,
+    sutils,
     ...
   } @ inputs: let
     system = "x86_64-linux";
