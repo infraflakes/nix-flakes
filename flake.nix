@@ -6,8 +6,8 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    sro = {
-      url = "github:infraflakes/sro";
+    kiru = {
+      url = "github:infraflakes/kiru";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     sutils = {
@@ -19,7 +19,7 @@
     self,
     nixpkgs,
     home-manager,
-    sro,
+    kiru,
     sutils,
     ...
   } @ inputs: let

@@ -3,8 +3,8 @@
   inputs,
   ...
 }: {
-  home.packages = [inputs.sro.packages.${pkgs.stdenv.hostPlatform.system}.default];
-  home.file.".config/sro/config.sro".text = ''
+  home.packages = [inputs.kiru.packages.${pkgs.stdenv.hostPlatform.system}.default];
+  home.file.".config/kiru/config.kiru".text = ''
     shell = `bash`;
     var shell workdir = `echo $HOME/dev`;
     sanctuary = $workdir;
@@ -16,18 +16,18 @@
       branch = `nixos`;
     }
 
-    pr sro {
-      url = `git@github.com:infraflakes/sro.git`;
-      dir = `sro`;
+    pr kiru {
+      url = `git@github.com:infraflakes/kiru.git`;
+      dir = `kiru`;
       sync = `clone`;
-      use = `.sro/main.sro`;
+      use = `.kiru/main.kiru`;
     }
 
     pr portfolio {
       url = `git@github.com:infraflakes/infraflakes.github.io.git`;
       dir = `portfolio`;
       sync = `clone`;
-      use = `.sro/main.sro`;
+      use = `.kiru/main.kiru`;
     }
 
     pr srwc {
@@ -35,7 +35,7 @@
       dir = `srwc`;
       sync = `ignore`;
       branch = `architectural-cleanups`;
-      use = `.sro/main.sro`;
+      use = `.kiru/main.kiru`;
     }
   '';
 }

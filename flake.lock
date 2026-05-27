@@ -56,6 +56,27 @@
         "type": "github"
       }
     },
+    "kiru": {
+      "inputs": {
+        "flake-parts": "flake-parts",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1779883438,
+        "narHash": "sha256-q5TpdPOHi5FuBc4Uz/F2OyZ9Ddd+Xmt+hRtJAFbUCWc=",
+        "owner": "infraflakes",
+        "repo": "kiru",
+        "rev": "52802c71c30fdc0a046940f8c4d7611d63f28231",
+        "type": "github"
+      },
+      "original": {
+        "owner": "infraflakes",
+        "repo": "kiru",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1779560665,
@@ -105,30 +126,9 @@
     "root": {
       "inputs": {
         "home-manager": "home-manager",
+        "kiru": "kiru",
         "nixpkgs": "nixpkgs",
-        "sro": "sro",
         "sutils": "sutils"
-      }
-    },
-    "sro": {
-      "inputs": {
-        "flake-parts": "flake-parts",
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1779807709,
-        "narHash": "sha256-bxUOMf6nXPY1hjgRLY61z+U6UpFf8qwoXOaWlavyE2g=",
-        "owner": "infraflakes",
-        "repo": "sro",
-        "rev": "d9661805a64a9cb2356053a7392a8cb756c2bda4",
-        "type": "github"
-      },
-      "original": {
-        "owner": "infraflakes",
-        "repo": "sro",
-        "type": "github"
       }
     },
     "sutils": {

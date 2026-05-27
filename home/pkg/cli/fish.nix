@@ -20,10 +20,10 @@
     shellInit = ''
       set UID (id -u)
       set -g fish_color_command normal --bold
-      set -g fish_color_param brblack
-      set -g fish_color_redirection brblue
+      set -g fish_color_param black
+      set -g fish_color_redirection blue
       set -g fish_color_error red --bold
-      set -g fish_color_autosuggestion white
+      set -g fish_color_autosuggestion brblack
       set -g fish_color_selection --reverse
     '';
     functions = {
@@ -31,7 +31,7 @@
       fish_prompt = ''
         echo
         set_color normal
-        set_color -o brblack
+        set_color -o black
         echo -n "  "
         echo -n (prompt_pwd)
         echo -n " ❯ "

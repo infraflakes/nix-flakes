@@ -1,20 +1,10 @@
 return {
   -- {
-  -- 	"arcticicestudio/nord-vim",
-  -- 	priority = 1000, -- Make sure to load this before all the other start plugins.
-  -- 	config = function()
-  -- 		vim.cmd.colorscheme "nord"
-  -- 		-- lua/serein/config/transparent.lua (or put in options.lua)
-  -- 		vim.api.nvim_set_hl(0, "Normal", { fg = "#c0caf5", bg = "NONE" })
-  -- 		-- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-  -- 		vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
-  -- 		vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
-  -- 		vim.api.nvim_set_hl(0, "FloatBorder", { bg = "none" })
-  -- 		vim.api.nvim_set_hl(0, "TelescopeNormal", { bg = "none" })
-  -- 		vim.api.nvim_set_hl(0, "TelescopeBorder", { bg = "none" })
-  -- 		vim.api.nvim_set_hl(0, "VertSplit", { bg = "none" })
-  -- 		vim.api.nvim_set_hl(0, "StatusLine", { bg = "none" })
-  -- 	end,
+  --   "arcticicestudio/nord-vim",
+  --   priority = 1000, -- Make sure to load this before all the other start plugins.
+  --   config = function()
+  --     vim.cmd.colorscheme "nord"
+  --   end,
   -- },
 
   -- {
@@ -86,25 +76,27 @@ return {
   --     vim.api.nvim_set_hl(0, "NeoTreeEndOfBuffer", { bg = "none" })
   --   end,
   -- },
-  {
-    "shaunsingh/solarized.nvim",
-    priority = 1000,
-    lazy = false, -- ensures it loads immediately on startup
-    config = function()
-      -- Solarized requires setting the global background option to 'light'
-      vim.o.background = "light"
-      vim.g.solarized_disable_background = true
-
-      -- Load and apply the colorscheme
-      vim.cmd.colorscheme "solarized"
-    end,
-  },
   -- {
-  --   "pebeto/dookie.nvim",
+  --   "shaunsingh/solarized.nvim",
   --   priority = 1000,
   --   lazy = false, -- ensures it loads immediately on startup
   --   config = function()
-  --     vim.cmd.colorscheme "dookie"
+  --     -- Solarized requires setting the global background option to 'light'
+  --     vim.o.background = "light"
+  --     vim.g.solarized_disable_background = true
+  --
+  --     -- Load and apply the colorscheme
+  --     vim.cmd.colorscheme "solarized"
   --   end,
   -- },
+  --
+  {
+    "cpplain/flexoki.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      vim.o.background = "light"
+      vim.cmd.colorscheme "flexoki"
+    end,
+  },
 }
