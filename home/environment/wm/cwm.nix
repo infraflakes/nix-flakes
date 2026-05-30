@@ -16,7 +16,6 @@
           systemctl --user import-environment DISPLAY XAUTHORITY
           dbus-update-activation-environment --systemd DISPLAY XAUTHORITY
       fi
-      # xinput set-prop "ASUF1204:00 2808:0202 Touchpad" "libinput Natural Scrolling Enabled" 1
       export XMODIFIERS=@im=fcitx
       export GTK_IM_MODULE=fcitx
       export QT_IM_MODULE=fcitx
