@@ -7,8 +7,7 @@
     ./cli/vcs.nix
     ./cli/container.nix
     ./cli/kiru.nix
-    ./cli/zellij.nix
-
+    ./cli/tmux.nix
     ./configs/ghostty.nix
   ];
 }
