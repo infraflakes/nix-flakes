@@ -40,10 +40,11 @@
     borderwidth 3
 
     color activeborder   "#86afef"
-    # color inactiveborder "#1e1b25"
-    # color menubg         "#1e1b25"
-    # color menufg         "#f8f8f2"
-    # color selfont        "#86afef"
+    color menubg "#1e1b25"
+    color menufg "#86afef"
+    color font "#c0caf5"
+    color selfont "#1e1b25"
+
     ignore lemonbar
 
     sticky yes # New windows automatically join current workspace
