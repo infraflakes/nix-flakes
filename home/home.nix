@@ -21,6 +21,7 @@
       "$HOME/.cargo/bin"
     ];
     packages = [
+      pkgs.nix
       pkgs.home-manager
       inputs.sutils.packages.${pkgs.stdenv.hostPlatform.system}.default
       pkgs.bottom
