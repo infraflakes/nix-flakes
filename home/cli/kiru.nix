@@ -2,19 +2,13 @@
   pkgs,
   inputs,
   ...
-}: {
-  home.packages = [inputs.kiru.packages.${pkgs.stdenv.hostPlatform.system}.default];
+}:
+{
+  home.packages = [ inputs.kiru.packages.${pkgs.stdenv.hostPlatform.system}.default ];
   home.file.".config/kiru/config.kiru".text = ''
     shell = `bash`;
     var shell workdir = `echo $HOME/dev`;
     sanctuary = $workdir;
-
-    pr nix {
-      url = `git@github.com:infraflakes/nix-flakes.git`;
-      dir = `nix`;
-      sync = `clone`;
-      branch = `nixos`;
-    }
 
     pr kiru {
       url = `git@github.com:infraflakes/kiru.git`;

@@ -2,7 +2,7 @@
 
 Build the image:
 ```bash
-curl -sSL https://gitlab.com/infraflakes/nix-flakes/-/raw/container/Dockerfile | podman build -t nixdev -f - .
+curl -sSL https://github.com/infraflakes/nixenv/-/raw/container/Dockerfile | podman build -t nixdev -f - .
 ```
 
 Create the container:

@@ -1,7 +1,7 @@
 # --- Global Args ---
 ARG USERNAME=nixdev
 ARG HOSTNAME=nixenv
-ARG REPO_URL="https://github.com/infraflakes/nix-flakes"
+ARG REPO_URL="https://github.com/infraflakes/nixenv"
 
 FROM nixos/nix:latest
 ARG USERNAME
