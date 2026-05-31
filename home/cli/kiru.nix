@@ -1,0 +1,41 @@
+{
+  pkgs,
+  inputs,
+  ...
+}: {
+  home.packages = [inputs.kiru.packages.${pkgs.stdenv.hostPlatform.system}.default];
+  home.file.".config/kiru/config.kiru".text = ''
+    shell = `bash`;
+    var shell workdir = `echo $HOME/dev`;
+    sanctuary = $workdir;
+
+    pr nix {
+      url = `git@github.com:infraflakes/nix-flakes.git`;
+      dir = `nix`;
+      sync = `clone`;
+      branch = `nixos`;
+    }
+
+    pr kiru {
+      url = `git@github.com:infraflakes/kiru.git`;
+      dir = `kiru`;
+      sync = `clone`;
+      include = `.kiru/main.kiru`;
+    }
+
+    pr portfolio {
+      url = `git@github.com:infraflakes/infraflakes.github.io.git`;
+      dir = `portfolio`;
+      sync = `clone`;
+      include = `.kiru/main.kiru`;
+    }
+
+    pr srwc {
+      url = `https://github.com/infraflakes/srwc.git`;
+      dir = `srwc`;
+      sync = `ignore`;
+      branch = `architectural-cleanups`;
+      include = `.kiru/main.kiru`;
+    }
+  '';
+}

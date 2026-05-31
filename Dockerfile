@@ -4,31 +4,29 @@ ARG HOSTNAME=container-env
 ARG REPO_URL="https://gitlab.com/infraflakes/nix-flakes"
 ARG REPO_BRANCH="container"
 
-FROM debian:bookworm-slim
+FROM alpine:latest
 ARG USERNAME
 ARG HOSTNAME
 ARG REPO_URL
 ARG REPO_BRANCH
 
-# 1. Install prerequisites
-RUN apt-get update && apt-get install -y \
-    xz-utils curl wget git fish opendoas \
-    && rm -rf /var/lib/apt/lists/*
+# 1. Install Alpine-native Nix, git, and fish shell
+# We pull shadow to let us manage user groups safely
+RUN echo "https://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories && \
+    apk update && apk add --no-cache \
+    nix shadow git fish curl xz
 
-# 2. Setup User & Nix Path
-RUN useradd -m $USERNAME && \
-    mkdir -m 0755 /nix && chown $USERNAME /nix && \
-    # Configure doas: permit the user to run commands as root without a password
-    echo "permit nopass $USERNAME as root" > /etc/doas.conf
+# 2. Setup Dedicated User & Group Layout
+# Alpine's native Nix package looks for the 'nixbld' group
+RUN groupadd -g 30000 nixbld && \
+    useradd -m -s /usr/bin/fish -G nixbld $USERNAME && \
+    mkdir -m 0755 /nix && chown $USERNAME:$USERNAME /nix
 
 USER $USERNAME
 WORKDIR /home/$USERNAME
 ENV USER=$USERNAME
 
-# 3. Install Nix (Single-user mode)
-RUN curl -L https://nixos.org/nix/install | sh -s -- --no-daemon
-
-# 4. Configure Environment
+# 3. Configure Nix Environment for Flakes & User Store Access
 ENV PATH="/home/$USERNAME/.nix-profile/bin:/nix/var/nix/profiles/default/bin:${PATH}"
 RUN mkdir -p ~/.config/nix && \
     echo "experimental-features = nix-command flakes" >> ~/.config/nix/nix.conf && \
@@ -36,7 +34,7 @@ RUN mkdir -p ~/.config/nix && \
     echo "auto-optimise-store = true" >> ~/.config/nix/nix.conf && \
     echo "max-jobs = auto" >> ~/.config/nix/nix.conf
 
-# 5. Build/Activate via Flake
+# 4. Build/Activate via Flake
 RUN git clone -b $REPO_BRANCH $REPO_URL container
 WORKDIR /home/$USERNAME/container
 RUN nix run nixpkgs#home-manager -- switch --flake .#${USERNAME}@${HOSTNAME}

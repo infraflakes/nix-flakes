@@ -1,21 +1,23 @@
-### Personal env flakes for podman/docker setup.
+### Personal flakes for non-nixos setup.
 
-Build the image:
+### How to install!
+
+Make sure nix is installed, personally I prefer Determinate Nix:
+
 ```bash
-curl -sSL https://gitlab.com/infraflakes/nix-flakes/-/raw/container/Dockerfile | podman build -t nixdev -f - .
+curl -fsSL https://install.determinate.systems/nix | sh -s -- install --determinate
 ```
 
-Create the container:
+Clone the repo:
+
 ```bash
-podman run -it --network host --name nixdev nixdev
+git clone -b non-nixos https://github.com/infraflakes/nix-flakes.git non-nixos
 ```
 
-Reattach to the stopped container:
+Build home manager:
+
 ```bash
-podman start -ai nixdev
+nix run .#homeConfigurations.<username>@<hostname>.activationPackage --extra-experimental-features nix-command --extra-experimental-features flakes
 ```
 
-Access the running container:
-```bash
-podman exec -it nixdev /usr/bin/fish
-```
+---

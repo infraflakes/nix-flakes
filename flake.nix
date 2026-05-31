@@ -6,41 +6,43 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    srn-coreutils = {
-      url = "github:infraflakes/srn-coreutils";
+    kiru = {
+      url = "github:infraflakes/kiru";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    srn-cd = {
-      url = "github:infraflakes/srn-cd";
+    sutils = {
+      url = "github:infraflakes/sutils";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
-  outputs = {
-    self,
-    nixpkgs,
-    home-manager,
-    srn-coreutils,
-    srn-cd,
-    ...
-  } @ inputs: let
-    system = "x86_64-linux";
-    pkgs = import nixpkgs {inherit system;};
-    username = "nixdev";
-    hostname = "container-env";
-  in {
-    # Home Manager
-    homeConfigurations."${username}@${hostname}" = home-manager.lib.homeManagerConfiguration {
-      inherit pkgs;
-      extraSpecialArgs = {inherit username inputs system;};
-      modules = [./home/home.nix];
+  outputs =
+    {
+      self,
+      nixpkgs,
+      home-manager,
+      kiru,
+      sutils,
+      ...
+    }@inputs:
+    let
+      system = "x86_64-linux";
+      pkgs = import nixpkgs { inherit system; };
+      username = "nixuris";
+      hostname = "serein";
+    in
+    {
+      # Home Manager
+      homeConfigurations."${username}@${hostname}" = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        extraSpecialArgs = { inherit inputs username; };
+        modules = [ ./home/home.nix ];
+      };
+      # DevShells
+      devShells.${system} = {
+        go = import ./devshells/go.nix { inherit pkgs; };
+        js = import ./devshells/js.nix { inherit pkgs; };
+        py = import ./devshells/py.nix { inherit pkgs; };
+        c = import ./devshells/c.nix { inherit pkgs; };
+      };
     };
-    # Dev Shell
-    devShells.${system} = {
-      rs = import ./devshells/rs.nix {inherit pkgs;};
-      go = import ./devshells/go.nix {inherit pkgs;};
-      js = import ./devshells/js.nix {inherit pkgs;};
-      py = import ./devshells/py.nix {inherit pkgs;};
-      c = import ./devshells/c.nix {inherit pkgs;};
-    };
-  };
 }
