@@ -8,6 +8,9 @@
       e = "nvim";
     };
     interactiveShellInit = ''
+      if test -e ~/.nix-profile/etc/profile.d/nix.fish
+          source ~/.nix-profile/etc/profile.d/nix.fish
+      end
       sn cd init fish | source
       echo "Welcome to your nixified dev environment!"
     '';
