@@ -2,20 +2,20 @@
 
 Build the image:
 ```bash
-podman build -t nixdev https://github.com/infraflakes/nixenv/raw/main/Dockerfile
+podman build -t nixenv https://github.com/infraflakes/nixenv/raw/main/Dockerfile
 ```
 
 Create the container:
 ```bash
-podman run -it --network host --name nixdev nixdev
+podman run -it --network host --name nixenv nixenv
 ```
 
 Reattach to the stopped container:
 ```bash
-podman start -ai nixdev
+podman start -ai nixenv
 ```
 
 Access the running container:
 ```bash
-podman exec -it nixdev /usr/bin/fish
+podman exec -it nixenv /usr/bin/fish
 ```

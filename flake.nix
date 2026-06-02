@@ -27,7 +27,7 @@
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs { inherit system; };
-      username = "nixdev";
+      username = "nixenv";
       hostname = "nixenv";
     in
     {

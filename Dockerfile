@@ -1,4 +1,4 @@
-ARG USERNAME=nixdev
+ARG USERNAME=nixenv
 ARG HOSTNAME=nixenv
 ARG REPO_URL="https://github.com/infraflakes/nixenv"
 
