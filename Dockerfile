@@ -25,7 +25,7 @@ RUN mkdir -p ~/.config/nix && \
     echo "auto-optimise-store = true" >> ~/.config/nix/nix.conf && \
     echo "max-jobs = auto" >> ~/.config/nix/nix.conf
 
-RUN git clone $REPO_URL && \
+RUN git clone --depth=1 $REPO_URL && \
     . ~/.nix-profile/etc/profile.d/nix.sh && \
     nix run nixpkgs#home-manager -- switch --flake ./nixenv#${USERNAME}@${HOSTNAME}
 

@@ -1,21 +1,22 @@
-### Personal env flakes for podman/docker setup.
+### Nixenv: containerized and nixified dev environment.
+
+Grab the script:
+```bash
+curl -sSL "https://raw.githubusercontent.com/infraflakes/nixenv/main/nixenv" -o ~/.local/bin/nixenv
+chmod +x ~/.local/bin/nixenv
+```
 
 Build the image:
 ```bash
-podman build -t nixenv https://github.com/infraflakes/nixenv/raw/main/Dockerfile
+nixenv build
 ```
 
-Create the container:
+Create the environment:
 ```bash
-podman run -it --network host --name nixenv nixenv
+nixenv create
 ```
 
-Reattach to the stopped container:
+Accessing the environment:
 ```bash
-podman start -ai nixenv
-```
-
-Access the running container:
-```bash
-podman exec -it nixenv /usr/bin/fish
+nixenv start
 ```
