@@ -1,7 +1,6 @@
 #!/usr/bin/env sh
 
 CONTAINER_NAME="nixenv"
-REMOTE_DOCKERFILE="https://github.com/infraflakes/nixenv/raw/main/Dockerfile"
 
 if command -v podman >/dev/null 2>&1; then
     ENGINE="podman"
@@ -13,14 +12,14 @@ else
 fi
 
 show_help() {
-    echo "Usage: nixenv [create|start|build|help]"
+    echo "Usage: nixenv [create|start|pull|help]"
     echo ""
     echo "Current Engine: $ENGINE"
     echo ""
     echo "Commands:"
     echo "  create   Provision a new dev environment"
     echo "  start    Attach to the container or exec into it if already active"
-    echo "  build    Compile the remote OCI container specification"
+    echo "  pull     Fetching the image"
     echo "  help     Display this system architecture matrix"
 }
 
@@ -51,9 +50,9 @@ case "$1" in
         fi
         ;;
 
-    build)
-        echo "Fetching and compiling remote OCI specification from GitHub via $ENGINE..."
-        $ENGINE build -t "$CONTAINER_NAME" "$REMOTE_DOCKERFILE"
+    pull)
+        echo "Fetching the container image..."
+        $ENGINE pull docker.io/infraflakes/nixenv:latest
         ;;
 
     help|--help|-h)

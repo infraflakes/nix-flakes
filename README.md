@@ -6,9 +6,9 @@ curl -sSL "https://raw.githubusercontent.com/infraflakes/nixenv/main/nixenv" -o 
 chmod +x ~/.local/bin/nixenv
 ```
 
-Build the image:
+Fetch the image:
 ```bash
-nixenv build
+nixenv pull
 ```
 
 Create the environment:
